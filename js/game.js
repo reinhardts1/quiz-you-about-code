@@ -1,7 +1,7 @@
 /*-------------------------------- Constants ----------------------------*/
 
 
-console.log('sanity');
+
 
 /*---------------------------- Variables (state) ------------------------*/
 
@@ -11,8 +11,8 @@ console.log('sanity');
 
 
 /*------------------------ Cached Element References --------------------*/
-
-
+const playerInput = document.querySelector('#player-name');
+const startGame = document.getElementById('start-button')
 
 
 
