@@ -34,6 +34,8 @@ const startGame = document.getElementById('start-button')
 
 
 
+
+
 /*-------------------------------- Functions ----------------------------*/
 
 
