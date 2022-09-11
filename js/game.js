@@ -4,13 +4,23 @@
 
 
 /*---------------------------- Variables (state) ------------------------*/
-
-
-
+let currentQuestion = {}
+let correctAnswers = true
+let score = 0
+let questionCounter = 0
+let availableQuestions = []
 
 
 
 /*------------------------ Cached Element References --------------------*/
+
+console.log(questionsReact)
+console.log(questionsPython)
+console.log(questionsNode)
+console.log(questionsJavascript)
+
+
+
 const playerInput = document.querySelector('#player-name');
 const startGame = document.getElementById('start-button')
 
