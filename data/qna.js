@@ -147,3 +147,24 @@ const questionsReact =
 ]
 
 
+function getNodeQuestion() {
+  return questionsNode[Math.floor(Math.random() * questionsNode.length)]
+}
+function getJavascriptQuestion() {
+  return questionsJavascript[Math.floor(Math.random() * questionsJavascript.length)]
+}
+function getPythonQuestion() {
+  return questionsPython[Math.floor(Math.random() *
+    questionsPython.length)]
+}
+function getReactQuestion() {
+  return questionsReact[Math.floor(Math.random() *
+    questionsReact.length)]
+}
+
+export {
+  getJavascriptQuestion,
+  getNodeQuestion,
+  getPythonQuestion,
+  getReactQuestion
+}

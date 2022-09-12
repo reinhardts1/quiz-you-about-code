@@ -1,14 +1,15 @@
+import { getJavascriptQuestion, getNodeQuestion, getPythonQuestion, getReactQuestion} 
+from "../data/qna.js"
+
+
+
 /*-------------------------------- Constants ----------------------------*/
 
 
 
 
 /*---------------------------- Variables (state) ------------------------*/
-let currentQuestion = {}
-let correctAnswers = true
-let score = 0
-let questionCounter = 0
-let availableQuestions = []
+
 
 
 
@@ -25,7 +26,7 @@ let availableQuestions = []
 
 const startGame = document.querySelector("#start-button")
 const changeMode = document.querySelector("#quiz-button")
-const questionContainer = document.querySelector("#question-cointainer")
+const questionContainer = document.querySelector("#question-container")
 
 
 
@@ -38,7 +39,7 @@ const questionContainer = document.querySelector("#question-cointainer")
 /*----------------------------- Event Listeners -------------------------*/
 
 changeMode.addEventListener('click', () => {
-  console.log('YO!!!')
+  console.log(getJavascriptQuestion())
 })
 startGame.addEventListener('click', () => {
   console.log('yalla')
