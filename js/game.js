@@ -27,6 +27,7 @@ from "../data/qna.js"
 const startGame = document.querySelector("#start-button")
 const changeMode = document.querySelector("#quiz-button")
 const questionContainer = document.getElementById("question-container")
+const playerInput = document.querySelector('player-input')
 
 
 
