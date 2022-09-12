@@ -14,20 +14,36 @@ let availableQuestions = []
 
 /*------------------------ Cached Element References --------------------*/
 
-console.log(questionsReact)
-console.log(questionsPython)
-console.log(questionsNode)
-console.log(questionsJavascript)
+// console.log(questionsReact)
+// console.log(questionsPython)
+// console.log(questionsNode)
+// console.log(questionsJavascript)
 
 
 
-const playerInput = document.querySelector('#player-name');
-const startGame = document.getElementById('start-button')
+
+
+const startGame = document.querySelector("#start-button")
+const changeMode = document.querySelector("#quiz-button")
+const questionContainer = document.querySelector("#question-cointainer")
+
+
+
+
+
 
 
 
 
 /*----------------------------- Event Listeners -------------------------*/
+
+changeMode.addEventListener('click', () => {
+  console.log('YO!!!')
+})
+startGame.addEventListener('click', () => {
+  console.log('yalla')
+
+})
 
 
 
