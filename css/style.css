@@ -9,7 +9,7 @@ main {
   margin: auto;
 }
 h1 {
-  margin: 18px;
+  margin: 16px;
 }
 
 .container {
@@ -26,4 +26,19 @@ h1 {
 .select-box .mode-container {
   background: #0c293ad9;
   color: azure;
+  /* *max-height: 0; */
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.select-box .option,
+.selected {
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.select-box .option:hover {
+  background-color: rgb(60, 11, 11);
+}
+.select-box label {
+  cursor: pointer;
 }
