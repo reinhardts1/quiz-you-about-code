@@ -1,4 +1,4 @@
-import {getJavascriptQuestion} 
+import {getJavascriptQuestion, getNodeQuestion, getPythonQuestion, getReactQuestion} 
 from "../data/qna.js"
 
 
@@ -42,6 +42,9 @@ const playerInfo = document.getElementById('values');
 
 changeMode.addEventListener('click', () => {
   console.log(getJavascriptQuestion())
+  console.log(getNodeQuestion());
+  console.log(getPythonQuestion())
+  console.log(getReactQuestion());
 })
 startGame.addEventListener('click', () => {
   console.log('yalla')
@@ -104,6 +107,6 @@ function updateName(e) {
 // Make a function to handle appending a card to the container element.
 // Add a button to reset the quiz. 
 // Add styling to ensure the quiz looks different for different media, (desktop and phone).
-// Add Dark/Light Mode & a Favicon.
+// Add Dark/Light Mode & a Favicon.  
 
 

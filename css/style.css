@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+main {
+  font-family: 'Roboto', sans-serif;
+  background: rgba(255, 255, 255, 0.282);
+  text-align: center;
+  margin: auto;
+}
+h1 {
+  margin: 18px;
+}
+
+.container {
+    margin-top: 100px;
+    padding: 32px;
+    
+}
+.select-box {
+  display: flex;
+  width: 400px;
+  text-align: center;
+}
+
+.select-box .mode-container {
+  background: #0c293ad9;
+  color: azure;
+}

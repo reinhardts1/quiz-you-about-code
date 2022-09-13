@@ -12,6 +12,8 @@ const questionsNode =
     question: "By default, npm installs any dependency in the local mode.",
     choice1:"True",
     choice2:"False",
+    choice3:"Ben Loves horses",
+    choice4:"David hates css",
     answer:1,
   },
   {
