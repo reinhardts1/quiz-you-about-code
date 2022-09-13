@@ -1,5 +1,6 @@
-import { getJavascriptQuestion, getNodeQuestion, getPythonQuestion, getReactQuestion} 
+import {getJavascriptQuestion} 
 from "../data/qna.js"
+
 
 
 
@@ -26,10 +27,10 @@ from "../data/qna.js"
 
 const startGame = document.querySelector("#start-button")
 const changeMode = document.querySelector("#quiz-button")
-const questionContainer = document.getElementById("question-container")
-const playerInput = document.querySelector('player-input')
 
 
+const playerInput = document.querySelector('input');
+const playerInfo = document.getElementById('values');
 
 
 
@@ -44,8 +45,12 @@ changeMode.addEventListener('click', () => {
 })
 startGame.addEventListener('click', () => {
   console.log('yalla')
-
 })
+playerInput.addEventListener('input', updateName);
+function updateName(e) {
+  playerInfo.textContent=e.target.value;
+
+}
 
 
 

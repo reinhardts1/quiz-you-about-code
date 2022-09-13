@@ -13,14 +13,10 @@
 <body>
   
   <h1> CODE QUIZ</h1>
-  
+  <input placeholder="Player Name" name ="name"/>
+  <p id="values"></p>
   <div class="header-btn-container">
-    <div  class="input-group mb-3">
-      <div   class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-default">Your Name</span>
-      </div>
-      <input id='player-input' type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
+  
   <button id="start-button" class="btn btn-outline-success btn-lg">START</button>
   <button id="quiz-button" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">QUIZ MODES</button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -29,9 +25,11 @@
       <button class="dropdown-item" type="button">REACT</button>
       <button class="dropdown-item" type="button">PYTHON</button>
     </div>
+  
     <div id="question-container">
 
     </div>
+  </div>
   </div>
     
   

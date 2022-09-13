@@ -166,5 +166,5 @@ export {
   getJavascriptQuestion,
   getNodeQuestion,
   getPythonQuestion,
-  getReactQuestion
+  getReactQuestion,
 }
