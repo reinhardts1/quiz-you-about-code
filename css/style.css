@@ -5,17 +5,18 @@
 main {
   font-family: 'Roboto', sans-serif;
   background: rgba(255, 255, 255, 0.282);
-  text-align: center;
-  margin: auto;
+  
 }
 h1 {
   margin: 16px;
 }
+h2 {
+  margin: 16px;
+}
 
 .container {
-    margin-top: 100px;
-    padding: 32px;
-    
+  margin-top: 450px;
+  padding: 32px;
 }
 .select-box {
   display: flex;
@@ -26,11 +27,14 @@ h1 {
 .select-box .mode-container {
   background: #0c293ad9;
   color: azure;
-  /* *max-height: 0; */
+  /* max-height: 0;
+  opacity: 0; */
   transition: all 0.4s;
   border-radius: 8px;
   overflow: hidden;
 }
+
+
 .select-box .option,
 .selected {
   padding: 12px 24px;
@@ -41,4 +45,8 @@ h1 {
 }
 .select-box label {
   cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
 }

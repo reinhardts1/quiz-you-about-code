@@ -25,9 +25,12 @@ from "../data/qna.js"
 
 
 
-const startGame = document.querySelector("#start-button")
-const changeMode = document.querySelector("#quiz-button")
+// const startGame = document.querySelector("#start-button")
 
+const changeMode1 = document.querySelector("#javascript")
+const changeMode2=document.querySelector('node')
+const changeMode3=document.querySelector('#react')
+const changeMode4=document.querySelector('#python')
 
 const playerInput = document.querySelector('input');
 const playerInfo = document.getElementById('values');
@@ -39,21 +42,16 @@ const playerInfo = document.getElementById('values');
 
 
 /*----------------------------- Event Listeners -------------------------*/
-
-changeMode.addEventListener('click', () => {
+changeMode1.addEventListener('click', () => {
   console.log(getJavascriptQuestion())
-  console.log(getNodeQuestion());
-  console.log(getPythonQuestion())
-  console.log(getReactQuestion());
-})
-startGame.addEventListener('click', () => {
-  console.log('yalla')
 })
 playerInput.addEventListener('input', updateName);
 function updateName(e) {
   playerInfo.textContent=e.target.value;
-
 }
+
+
+
 
 
 
