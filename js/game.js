@@ -32,8 +32,6 @@ const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
 
-const playerInput = document.querySelector('input');
-const playerInfo = document.getElementById('values');
 
 
 
