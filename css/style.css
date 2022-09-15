@@ -5,8 +5,8 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: left;
   background: linear-gradient(#e66465, #9198e5);
 }
 
@@ -14,9 +14,9 @@ body {
 .btn-container {
   margin-top: 100px;
   padding: 32px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
 }
 .select-box {
   display: flex;

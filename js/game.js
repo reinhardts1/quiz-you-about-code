@@ -5,7 +5,7 @@ from "../data/qna.js"
 
 
 /*-------------------------------- Constants ----------------------------*/
-
+const questions = []
 
 
 
@@ -63,6 +63,7 @@ startGame.addEventListener('click', () => {
   }
   return startNow
 })
+
 
 
 
