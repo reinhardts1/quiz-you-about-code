@@ -1,4 +1,4 @@
-const questionsNode = 
+const quizQuestions = 
 [
   {
     question: "How are Node based web servers are different from traditional web servers?",
@@ -33,10 +33,7 @@ const questionsNode =
     choice4:"None of the above.",
     answer:3,
   },
-]
 
-const questionsJavascript = 
-[
   {
     question:"Inside which HTML element do we put the JavaScript?",
     choice1: "js tag",
@@ -72,10 +69,7 @@ const questionsJavascript =
     choice4:"for (i = 0; i <= 5)",
     answer:3,
   },
-]
 
-const questionsPython = 
-[
   {
     question:"What is a correct syntax to output 'Hello World' in Python?",
     choice1: "echo 'Hello World'",
@@ -108,12 +102,7 @@ const questionsPython =
     choice:"trim()",
     answer:3,
   },
-]
 
-
-
-const questionsReact = 
-[
   {
     question: "What is the correct command to create a new React project?",
     choice1:"npm create-react-app",
@@ -149,24 +138,11 @@ const questionsReact =
 ]
 
 
-function getNodeQuestion() {
-  return questionsNode[Math.floor(Math.random() * questionsNode.length)]
-}
-function getJavascriptQuestion() {
-  return questionsJavascript[Math.floor(Math.random() * questionsJavascript.length)]
-}
-function getPythonQuestion() {
-  return questionsPython[Math.floor(Math.random() *
-    questionsPython.length)]
-}
-function getReactQuestion() {
-  return questionsReact[Math.floor(Math.random() *
-    questionsReact.length)]
+function getGameQuestions() {
+  return getGameQuestions[Math.floor(Math.random() * getGameQuestions.length)]
 }
 
+
 export {
-  getJavascriptQuestion,
-  getNodeQuestion,
-  getPythonQuestion,
-  getReactQuestion,
+  getGameQuestions
 }

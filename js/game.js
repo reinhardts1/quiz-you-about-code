@@ -1,4 +1,4 @@
-import {getJavascriptQuestion, getNodeQuestion, getPythonQuestion, getReactQuestion} 
+import {getGameQuestions} 
 from "../data/qna.js"
 
 
@@ -53,16 +53,13 @@ quizModes.forEach( modeElement => {
 })
 
 startGame.addEventListener('click', () => {
-  let startNow;
+  let startNow=[]
   if (selected.innerHTML === "Javascript") {
-    startNow = getJavascriptQuestion;
-  } else {
-    selected.innerHTML==="Node"; {
-      startNow = getNodeQuestion;
-    } 
-  }
+    startNow = getGameQuestions;
+  } 
   return startNow
-})
+    
+  })
 
 
 
