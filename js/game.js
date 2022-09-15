@@ -5,11 +5,18 @@ from "../data/qna.js"
 
 
 /*-------------------------------- Constants ----------------------------*/
-
+const MAX_QUESTIONS = 16;
+const CORRECT_BONUS = 10;
 
 
 
 /*---------------------------- Variables (state) ------------------------*/
+let currentQuestion = {};
+let correctAnswer = true;
+let availableQuestion = [];
+let questionCounter = 0;
+let score = 0;
+let questions = getGameQuestions;
 
 
 
