@@ -5,7 +5,7 @@ from "../data/qna.js"
 
 
 /*-------------------------------- Constants ----------------------------*/
-const questions = []
+
 
 
 
@@ -31,9 +31,13 @@ const questions = []
 const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
-const startGame=document.querySelector('.start-btn')
-const answerChoices=Array.from(document.querySelector('.choice-text'));
+const startGame=document.querySelector('.start-btn');
+const question=document.getElementById('question')
+const answerChoices=Array.from(document.querySelector('.choice-text'))
 console.log(answerChoices);
+
+
+
 
 
 
@@ -57,7 +61,7 @@ quizModes.forEach( modeElement => {
 
 startGame.addEventListener('click', () => {
   let startNow=[]
-  if (selected.innerHTML === "Javascript") {
+  if (selected.innerHTML === "Normal") {
     startNow = getGameQuestions;
   } 
   return startNow
