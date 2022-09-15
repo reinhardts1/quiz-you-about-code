@@ -23,10 +23,7 @@ let questions = (quizQuestions)
 
 /*------------------------ Cached Element References --------------------*/
 
-// console.log(questionsReact)
-// console.log(questionsPython)
-// console.log(questionsNode)
-// console.log(questionsJavascript)
+
 
 
 
@@ -34,13 +31,12 @@ let questions = (quizQuestions)
 
 // const startGame = document.querySelector("#start-button")
 
-const btnContainer=document.querySelector('.btn-container')
+
 const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
 const startGame=document.querySelector('.start-btn');
 const question=document.getElementById('question')
-const answerChoices=Array.from(document.querySelector('.choice-value'))
 const questionContainter = document.querySelector('.question-container')
 
 
@@ -75,10 +71,8 @@ quizModes.forEach( modeElement => {
 // });
 
 startGame.addEventListener('click', () => {
-  if (btnContainer.innerHTML === 'normal')
   startGame.style.display='none';
   questionContainter.style.display="block";
-  
 })
 // startGame.addEventListener('click', () => {
 //   let startNow=[]
@@ -86,7 +80,7 @@ startGame.addEventListener('click', () => {
 //     startNow = getGameQuestions;
 //   } 
 //   return startNow
-    
+
 //   })
 
 
@@ -103,6 +97,8 @@ startGame.addEventListener('click', () => {
 
 
 /*-------------------------------- Functions ----------------------------*/
+
+
 
 
 

@@ -43,8 +43,6 @@ const quizQuestions =
     answer:2,
   },
 
-
-
   {
     question: "What is the correct JavaScript syntax to change the content of the HTML element below?",
     choice1:"document.getElementById('demo').innerHTML='hello world!';",
@@ -75,7 +73,7 @@ const quizQuestions =
     choice1: "echo 'Hello World'",
     choice2:"echo('Hello World');",
     choice3:"print('Hello World')  ",
-    choice:"p('Hello World')",
+    choice4:"p('Hello World')",
     answer:3,
   },
   {
@@ -83,57 +81,8 @@ const quizQuestions =
     choice1: ".pyt",
     choice2:".py",
     choice3:".pyth",
-    choice:".pt",
+    choice4:".pt",
     answer:2,
-  },
-  {
-    question:"What is the correct syntax to output the type of a variable or object in Python?",
-    choice1:"print(typeof(x))",
-    choice2:"print(typeOf(x))",
-    choice3:"print(typeof x)",
-    choice:"print(type(x))  ",
-    answer:4,
-  },
-  {
-    question:"Which method can be used to remove any whitespace from both the beginning and the end of a string?",
-    choice1:"len()",
-    choice2:"ptrim()",
-    choice3:"strip()",
-    choice:"trim()",
-    answer:3,
-  },
-
-  {
-    question: "What is the correct command to create a new React project?",
-    choice1:"npm create-react-app",
-    choice2:"npm create-react-app myReactApp",
-    choice3:"npx create-react-app",
-    choice:"npx create-react-app myReactApp",
-    answer:4,
-  },
-  {
-    question:"What command is used to start the React local development server?",
-    choice1:"npm build",
-    choice2:"npm run dev",
-    choice3:"npm serve",
-    choice:"npm start  ",
-    answer:4,
-  },
-  {
-    question:"What is the default local host port that a React development server uses?",
-    choice1:"3500",
-    choice2:"3000  ",
-    choice3:"5000",
-    choice:"8080",
-    answer:2,
-  },
-  {
-    question:"What is the children prop?",
-    choice1:"A property that lets you pass data to child components",
-    choice2:"A property that adds child values to state",
-    choice3: "A property that lets you set an object as a property",
-    choice:"A property that lets you nest components in other components  ",
-    answer:4
   },
 ]
 
