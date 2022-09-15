@@ -1,4 +1,4 @@
-import {getGameQuestions} 
+import {quizQuestions} 
 from "../data/qna.js"
 
 
@@ -16,7 +16,7 @@ let correctAnswer = true;
 let availableQuestion = [];
 let questionCounter = 0;
 let score = 0;
-let questions = getGameQuestions;
+let questions = (quizQuestions)
 
 
 
@@ -34,14 +34,18 @@ let questions = getGameQuestions;
 
 // const startGame = document.querySelector("#start-button")
 
-
+const btnContainer=document.querySelector('.btn-container')
 const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
 const startGame=document.querySelector('.start-btn');
 const question=document.getElementById('question')
-const answerChoices=Array.from(document.querySelector('.choice-text'))
-console.log(answerChoices);
+const answerChoices=Array.from(document.querySelector('.choice-value'))
+const questionContainter = document.querySelector('.question-container')
+
+
+
+
 
 
 
@@ -66,14 +70,24 @@ quizModes.forEach( modeElement => {
   })
 })
 
+// $(".start-btn").on("click", () => {
+//   $("body").toggleClass(".question-container")
+// });
+
 startGame.addEventListener('click', () => {
-  let startNow=[]
-  if (selected.innerHTML === "Normal") {
-    startNow = getGameQuestions;
-  } 
-  return startNow
+  if (btnContainer.innerHTML === 'normal')
+  startGame.style.display='none';
+  questionContainter.style.display="block";
+  
+})
+// startGame.addEventListener('click', () => {
+//   let startNow=[]
+//   if (selected.innerHTML === "Normal") {
+//     startNow = getGameQuestions;
+//   } 
+//   return startNow
     
-  })
+//   })
 
 
 
@@ -92,7 +106,14 @@ startGame.addEventListener('click', () => {
 
 
 
+// startGame () {
+//   questionCounter = 0;
+//   score = 0;
+//   availableQuestion = [...getGameQuestions];
+//   console.log(availableQuestion);
+// }
 
+// startGame ();
 
 
 

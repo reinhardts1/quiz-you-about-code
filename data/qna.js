@@ -138,11 +138,9 @@ const quizQuestions =
 ]
 
 
-function getGameQuestions() {
-  return getGameQuestions[Math.floor(Math.random() * getGameQuestions.length)]
-}
+
 
 
 export {
-  getGameQuestions
+  quizQuestions
 }
