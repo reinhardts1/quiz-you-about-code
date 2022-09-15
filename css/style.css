@@ -6,19 +6,23 @@
 body {
   font-family: "Roboto", sans-serif;
   text-align: center;
-  
-
+  align-items: center;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 
 .btn-container {
   margin-top: 100px;
   padding: 32px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .select-box {
   display: flex;
   width: 400px;
   flex-direction: column;
+  
 }
 .select-box .mode-container {
   background: #4c7e727d;
@@ -30,6 +34,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
   order: 1;
+  
 }
 .select-box .modes,
 .selected {
@@ -87,3 +92,4 @@ body {
 
   transition: all 0.4s;
 }
+

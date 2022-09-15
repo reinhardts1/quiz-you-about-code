@@ -31,6 +31,7 @@ from "../data/qna.js"
 const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
+const startGame=document.querySelector('.start-btn')
 
 
 
@@ -50,6 +51,19 @@ quizModes.forEach( modeElement => {
     modeContainer.classList.remove('active');
   })
 })
+
+startGame.addEventListener('click', () => {
+  let startNow;
+  if (selected.innerHTML === "Javascript") {
+    startNow = getJavascriptQuestion;
+  } else {
+    selected.innerHTML==="Node"; {
+      startNow = getNodeQuestion;
+    } 
+  }
+  return startNow
+})
+
 
 
 
