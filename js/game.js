@@ -32,6 +32,9 @@ const selected=document.querySelector('.selected');
 const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
 const startGame=document.querySelector('.start-btn')
+const answerChoices=Array.from(document.querySelector('.choice-text'));
+console.log(answerChoices);
+
 
 
 
