@@ -1,9 +1,5 @@
 import {getJavascriptQuestion,getNodeQuestion, getPythonQuestion} 
 from "../data/qna.js"
-
-
-
-
 /*-------------------------------- Constants ----------------------------*/
 const quizModes = ['JAVASCRIPT','NODE','PYTHON']
 /*---------------------------- Variables (state) ------------------------*/
@@ -18,80 +14,33 @@ const selectMsg=document.querySelector('#quiz-selected')
 const prgBar=document.querySelector('.progress-bar')
 const flBar=document.querySelector('.progress-full')
 const scoreCollector=document.querySelector('#score-title')
-const
-
-
-
-
-
-// const startBtn = document.querySelector("#start-button")
-// const modeContainer=document.querySelector('.mode-container');
-// const selected=document.querySelector('.selected');
-// const quizModes=document.querySelectorAll('.modes');
-// const questionContainter = document.querySelector('.question-container')
-// const startGame=document.querySelector('.start-btn');
-
-// const question=document.getElementById('question')
-// const scores=document.querySelector('#score')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const scoreMsg=document.querySelector('#score-number')
+const winDisplay=document.querySelector('#winner-msg')
+const totalScoreMsg=document.querySelector('#total')
+const queDisplay=document.querySelector('#question-board')
+const questionTimer=document.querySelector('#timer')
+const userAnswer=document.querySelector('.question-value')
+const textAnimations=document.querySelector('.text')
 /*----------------------------- Event Listeners -------------------------*/
-
-// selected.addEventListener('click', () => {
-//   modeContainer.classList.toggle('active');
-// })
-// quizModes.forEach( modeElement => {
-//   modeElement.addEventListener('click', () => {
-//     selected.innerHTML=modeElement.querySelector('label').innerHTML;
-//     modeContainer.classList.remove('active');
-//   })
-// })
-// startGame.addEventListener('click', () => {
-//   startGame.style.display='none';
-//   questionContainter.style.display="block";
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+quizModeBtn.addEventListener('click', selectMode)
+resetBtn.addEventListener('click', init)
 /*-------------------------------- Functions ----------------------------*/
+init()
+
+function init() {
+  if (timer) {
+    clearInterval(timer)
+  }
+}
+score=0
+winner=null
+questionCounter=0
+correctAnswer=0
+availableQuestions=[]
+seconds=80
+
+
+
 // init()
 
 // function init () {

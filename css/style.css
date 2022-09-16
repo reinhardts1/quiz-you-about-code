@@ -25,8 +25,9 @@ h1 {
 
 .question-container {
   display: flex;
-  justify-content: center;
-  display: none;
+  justify-content: left;
+  display: ;
+  text-align: left;
   
 }
 
@@ -86,14 +87,13 @@ h2 {
   transform: translateY(-100%) translateX(1800%);
 }
 
-#tag {
-  transform-style: preserve-3d;
-  display: none;
-  position:absolute;
-  top: -55px;
-  left:50%;
-  transform: translateX(-50%);
-  font-size:50px;
-  line-height: 50px;
+
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 1440px;
 }
+
 
