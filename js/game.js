@@ -1,47 +1,51 @@
-import {quizQuestions} 
+import {getJavascriptQuestion,getNodeQuestion, getPythonQuestion} 
 from "../data/qna.js"
 
 
 
 
 /*-------------------------------- Constants ----------------------------*/
-const HIGH_SCORE = 100
-const MAX_QUESTION = 10   
+const  
 
 
 
 
 /*---------------------------- Variables (state) ------------------------*/
-let currentQuestion = {};
-let correctAnswer = true;
-let availableQuestion = [];
-let questionCounter = 0;
-let score = 0;
-let questions = (quizQuestions)
-let endQuiz = availableQuestion> MAX_QUESTION;
+
+let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds
+
+// let currentQuestion = {};
+// let correctAnswer = true;
+// let availableQuestion = [];
+// let questionCounter = 0;
+// let score = 0;
+// let questions = (quizQuestions)
+// let endQuiz = availableQuestion> MAX_QUESTION;
 
 
 
 
 /*------------------------ Cached Element References --------------------*/
-
-
-
-
-
-
-
-// const startGame = document.querySelector("#start-button")
-
-
-const selected=document.querySelector('.selected');
+const startBtn = document.querySelector("#start-button")
 const modeContainer=document.querySelector('.mode-container');
+const selected=document.querySelector('.selected');
 const quizModes=document.querySelectorAll('.modes');
-const startGame=document.querySelector('.start-btn');
-const question=document.getElementById('question')
-const scoreTitle=document.querySelector('#scoring-container')
 const questionContainter = document.querySelector('.question-container')
-const answerChoices=Array.from(document.querySelectorAll(".choice-value"))
+
+
+
+
+
+
+
+
+
+
+// const startGame=document.querySelector('.start-btn');
+// const question=document.getElementById('question')
+// const scores=document.querySelector('#score')
+
+
 
 
 
@@ -61,19 +65,19 @@ const answerChoices=Array.from(document.querySelectorAll(".choice-value"))
 
 /*----------------------------- Event Listeners -------------------------*/
 
-selected.addEventListener('click', () => {
-  modeContainer.classList.toggle('active');
-})
-quizModes.forEach( modeElement => {
-  modeElement.addEventListener('click', () => {
-    selected.innerHTML=modeElement.querySelector('label').innerHTML;
-    modeContainer.classList.remove('active');
-  })
-})
-startGame.addEventListener('click', () => {
-  startGame.style.display='none';
-  questionContainter.style.display="block";
-})
+// selected.addEventListener('click', () => {
+//   modeContainer.classList.toggle('active');
+// })
+// quizModes.forEach( modeElement => {
+//   modeElement.addEventListener('click', () => {
+//     selected.innerHTML=modeElement.querySelector('label').innerHTML;
+//     modeContainer.classList.remove('active');
+//   })
+// })
+// startGame.addEventListener('click', () => {
+//   startGame.style.display='none';
+//   questionContainter.style.display="block";
+// })
 
 
 
@@ -90,23 +94,57 @@ startGame.addEventListener('click', () => {
 
 
 /*-------------------------------- Functions ----------------------------*/
-init()
+// init()
 
-function init () {
-  questionCounter = 0
-  score = 0
-  availableQuestion = [...questions]
-  newQuestion()
-  render()
-}
-
-newQuestion= () => {
-  if (availableQuestion.length === 0 || questionCounter > MAX_QUESTION ) {
-    questionCounter++
-  }
-}
+// function init () {
+//   questionCounter = 0
+//   score = 0
+//   availableQuestion = [...questions]
 
 
+//   newQuestions()
+//   render()
+  
+// }
+
+// newQuestions= () => {
+  
+//   const questionsIndex=Math.floor(Math.random() * availableQuestion.length)
+//   currentQuestion = availableQuestion[questionsIndex]
+//   question.innerText = currentQuestion
+
+
+//   answerChoices.forEach(choice => {
+//   const number = choice.dataset['number']
+//   choice.innerText = currentQuestion['choice' + number]
+// })
+
+//   availableQuestion.splice(questionsIndex, 1)
+
+//   correctAnswer= true
+
+// }
+
+// answerChoicesCounter= () => {
+//   choice.addEventListener('click', evt => {
+//     if (!correctAnswer) 
+//     return
+
+//     correctAnswer = false
+//     const choicePicked = evt.target
+//     const answerPicked = choicePicked.dataset['number']
+//     let classToApply = answerPicked == currentQuestion.answer ? 'correct': 'incorrect'
+//     choicePicked.parentElement.classList.add(classToApply)
+    
+//     setInterval(() => {
+//       choicePicked.parentElement.classList.add(classToApply)
+//       newQuestions()
+//     })
+
+//   })
+  
+
+// }
 
 
 

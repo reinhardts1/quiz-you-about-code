@@ -1,5 +1,5 @@
-const quizQuestions = 
-[
+const quizQuestions = {
+  questionsNode:[
   {
     question: "How are Node based web servers are different from traditional web servers?",
     choice1: "Node based server process request much faster than traditional server.",
@@ -33,6 +33,8 @@ const quizQuestions =
     choice4:"None of the above.",
     answer:3,
   },
+],
+  questionsJavascript:[
 
   {
     question:"Inside which HTML element do we put the JavaScript?",
@@ -67,7 +69,8 @@ const quizQuestions =
     choice4:"for (i = 0; i <= 5)",
     answer:3,
   },
-
+],
+  questionsPython: [
   {
     question:"What is a correct syntax to output 'Hello World' in Python?",
     choice1: "echo 'Hello World'",
@@ -84,12 +87,40 @@ const quizQuestions =
     choice4:".pt",
     answer:2,
   },
+  {
+    question:"Does Ben like Python",
+    choice1: "Hates it just like he hates horses",
+    choice2:"Loves it more than his cats",
+    choice3:" Its meh",
+    choice4:"All of the above",
+    answer:3,
+  },
+  {
+    question:"Why does David have an obsession with CSS",
+    choice1: "He loves himself some styling sheets",
+    choice2:"Makes him happy",
+    choice3:"Because he's a geek",
+    choice4:"All of the above",
+    answer:1,
+  }
+  
 ]
+}
 
-
-
+function getNodeQuestion() {
+  return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
+}
+function getJavascriptQuestion() {
+  return quizQuestions.questionsJavascript[Math.floor(Math.random() * quizQuestions.questionsJavascript.length)]
+}
+function getPythonQuestion() {
+  return quizQuestions.questionsPython[Math.floor(Math.random() *
+    quizQuestions.questionsPython.length)]
+}
 
 
 export {
-  quizQuestions
+  getNodeQuestion,
+  getJavascriptQuestion,
+  getPythonQuestion
 }

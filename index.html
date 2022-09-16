@@ -26,11 +26,26 @@
               id="normal" 
               name='category'
             />
-            <label for="normal"> Normal </label>
+            <label for="node"> Node </label>
           </div>
         </div>
-        <div class="selected">
-          Select Quiz Mode
+        <div class="modes">
+          <input
+            type="radio" 
+            class="radio" 
+            id="javascript" 
+            name='category'
+          />
+          <label for="javascript"> Javascript </label>
+        </div>
+        <div class="modes">
+          <input
+            type="radio" 
+            class="radio" 
+            id="python" 
+            name='category'
+          />
+          <label for="python"> Python </label>
         </div>
       </div>
       <div class="start-btn">
@@ -49,8 +64,11 @@
       </div>
     </div>
     <div class="question-container">
+      <div id="timer">
+        00:00
+      </div>
       <div id="game" class="justify-center flex-column">
-        <h2 id="question">What is the answer to this question?</h2>
+        <h2 id="question">Here is my question?</h2>
         <div class="choice-container">
           <p class="choice-label">A</p>
           <p class="choice-value" data-number="1">Choice 1</p>
