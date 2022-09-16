@@ -1,18 +1,13 @@
 import {getJavascriptQuestion,getNodeQuestion, getPythonQuestion} 
 from "../data/qna.js"
-/*-------------------------------- Constants ----------------------------*/
 const quizModes = ['JAVASCRIPT','NODE','PYTHON']
-/*---------------------------- Variables (state) ------------------------*/
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
-/*------------------------ Cached Element References --------------------*/
 const quizModeBtn=document.querySelector('.select-box')
 const quizContainer=document.querySelector('.question-container')
 const ansChoices=Array.from(document.querySelectorAll('.choice'))
 const resetBtn=document.querySelector('#reset-btn')
 const winContainer=document.querySelector('#winner-container')
 const selectMsg=document.querySelector('#quiz-selected')
-const prgBar=document.querySelector('.progress-bar')
-const flBar=document.querySelector('.progress-full')
 const scoreCollector=document.querySelector('#score-title')
 const scoreMsg=document.querySelector('#score-number')
 const winDisplay=document.querySelector('#winner-msg')
@@ -21,25 +16,85 @@ const queDisplay=document.querySelector('#question-board')
 const questionTimer=document.querySelector('#timer')
 const userAnswer=document.querySelector('.question-value')
 const textAnimations=document.querySelector('.text')
-/*----------------------------- Event Listeners -------------------------*/
-quizModeBtn.addEventListener('click', selectMode)
+
+quizModeBtn.addEventListener('click', quizModes)
 resetBtn.addEventListener('click', init)
-/*-------------------------------- Functions ----------------------------*/
+
 init()
 
 function init() {
   if (timer) {
     clearInterval(timer)
   }
-}
 score=0
 winner=null
 questionCounter=0
 correctAnswer=0
 availableQuestions=[]
 seconds=80
+resetBtn.style.visibility='hidden'
+selectMsg.style.visibility='hidden'
+scoreCollector.style.visibility='hidden'
+totalScoreMsg.style.visibility='hidden'
+queDisplay.style.visibility='hidden'
+userAnswer.style.display="none"
+questionTimer.style.visibility='hidden'
 
 
+
+}
+function selectQuiz(evt) {
+  if (evt.target.textContent !== 'random') {
+    mode=evt.target.textContent
+    selectMsg.textContent=`${evt.target.textContent.toUpperCase()}`
+  } else {
+    idx=Math.floor(Math.random() * quizModes.length)
+    mode=quizModes[idx]
+    selectMsg.textContent=`${mode.toUpperCase()}`
+    scoreCollector.style.visibility='visible'
+    quizContainer.style.display='none'
+  }
+  startTimer()
+}
+function startTimer()  {
+  clearInterval(timer)
+  timer= (setInterval(function () {
+    seconds-- 
+    if(seconds<30) {
+      questionTimer.textContent=`0${seconds}`
+    } else if (seconds>=30) {
+      questionTimer.textContent=`${seconds}`
+    } if (seconds===0) {
+      getWinner()
+      
+    }
+  }, 100))
+  renderQuestion()
+}
+function renderQuestion() {
+  scoreCollector.textContent=`SCORE ${score}`
+  if (mode==='JAVASCRIPT') {
+    currentQuestion=getJavascriptQuestion()
+  } else if (mode==='NODE') {
+    currentQuestion=getNodeQuestion()
+  } else if (mode==='PYTHON') {
+    currentQuestion=getPythonQuestion()
+  }
+  if (availableQuestions.length===4) {
+    setTimeout(getWinner(),100)
+  }
+    if(!availableQuestions.includes(currentQuestion)) {
+      availableQuestions.push(currentQuestion) 
+    } else renderQuestion()
+}
+queDisplay.textContent=currentQuestion.questions
+for(let i=0; i<ansChoices.length; i++) {
+  ansChoices[i].textContent=currentQuestion.choice[i]
+  ansChoices[i].addEventListener('click', onChooseOption)
+}
+
+
+// console.log(quizModes);
 
 // init()
 

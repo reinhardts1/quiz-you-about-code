@@ -12,6 +12,11 @@ body {
 }
 h1 {
   text-align: center;
+  color: white;
+}
+
+h2{
+  color: white;
 }
 
 
@@ -126,15 +131,65 @@ h2 {
 }
 
 #question-board {
-  display: grid;
-  background: #e66465;
-  width: 200%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid rgba(202, 61, 61, 0.774);
+  border-radius: 10px;
+  min-height: 15vh;
+  margin: 40px 20px 0 20px;
+  margin-top: 2vh;
+  gap: 30px;
+  background: #cee664db;
+  width: 100%;
   font-size: 12px;
+  color: rgb(0, 0, 0);
+  font: bold;
+  font-size: medium;
+  transform: translateY(2%) translateX(-3%);
+}
+#board>p {
+  padding: 4vh 8vw 2vh;
+  text-align: center;
 }
 
-.mode-container {
 
+#question-value {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+  margin-bottom: 5px;
 }
+#question-value>div{
+  border: 2px solid;
+  border-radius: 10px;
+  width: 50vw;
+  max-height: 4vh;
+  text-align: center;
+  padding: 5px 5px;
+  background: rgba(255, 255, 255, 0.618);
+  color: red;
+}
+#timer {
+  color: white;
+}
+
+#quiz-selected{
+  text-align: center;
+}
+#total {
+  text-align: center;
+  color: white;
+}
+
+
+
+
+
+
+
+
 
 
 
