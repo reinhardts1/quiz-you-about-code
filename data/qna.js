@@ -2,111 +2,73 @@ const quizQuestions = {
   questionsNode:[
   {
     question: "How are Node based web servers are different from traditional web servers?",
-    choice1: "Node based server process request much faster than traditional server.",
-    choice2:"Node based server uses a single threaded model and can services much larger number of requests than traditional server like Apache HTTP Server.",
-    choice3:"There is not much difference between the two.",
-    choice4:"None of the above.", 
-    answer:2,
+    choices:["Node based server process request much faster than traditional server.","Node based server uses a single threaded model and can services much larger number of requests than traditional server like Apache HTTP Server.","There is not much difference between the two.","There is not much difference between the two.","None of the above."],
+    answer:"Node based server uses a single threaded model and can services much larger number of requests than traditional server like Apache HTTP Server.",
   },
   {
     question: "By default, npm installs any dependency in the local mode.",
-    choice1:"True",
-    choice2:"False",
-    choice3:"Ben Loves horses",
-    choice4:"David hates css",
-    answer:1,
+    choices:["true",'false','Ben loves horses','David hates css',],
+    answer:"True",
   },
   {
     question: "Which of the following is true with respect to Node.",
-    choice1:"Every API of Node js are asynchronous.",
-    choice2:"Node being a single thread, and uses async function calls to maintain the concurrency." ,
-    choice3:"Node thread keeps an event loop and whenever any task get completed, it fires the corresponding event which signals the event listener function to get executed.",
-    choice4:"All of the above." ,
-
-    answer:4,
+    choices:["Every API of Node js are asynchronous.","Node being a single thread, and uses async function calls to maintain the concurrency." ,"Node thread keeps an event loop and whenever any task get completed, it fires the corresponding event which signals the event listener function to get executed.","All of the above."],
+    answer:"All of the above.",
   },
   {
     question: " Which of the following is true about global objects in Node applications?",
-    choice1:"Global objects are global in nature and they are available in all modules.",
-    choice2:"Global objects are nore required to be included in application, rather they can be used directly.",
-    choice3:"Both of the above.",
-    choice4:"None of the above.",
-    answer:3,
+    choices:["Global objects are global in nature and they are available in all modules.","Global objects are nore required to be included in application, rather they can be used directly.","Both of the above.","None of the above."],
+    answer:"Both of the above.",
   },
 ],
   questionsJavascript:[
 
   {
     question:"Inside which HTML element do we put the JavaScript?",
-    choice1: "js tag",
-    choice2:"script tag",
-    choice3:"body tag",
-    choice4:"javascript tag",
-    answer:2,
+    choices:["js tag","script tag","body tag","javascript tag"],
+    answer:"script tag",
   },
 
   {
     question: "What is the correct JavaScript syntax to change the content of the HTML element below?",
-    choice1:"document.getElementById('demo').innerHTML='hello world!';",
-    choice2:"#demo.innerHTML='hello world!';",
-    choice3:"document.querySelector('demo').innerHTML = 'hello world';",
-    choice4:"None of the above",
-    answer:1,
+    choices:["document.getElementById('demo').innerHTML='hello world!';","#demo.innerHTML='hello world!';","document.querySelector('demo').innerHTML = 'hello world';","None of the above"],
+    answer:"document.getElementById('demo').innerHTML='hello world!';",
   },
   {
     question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
-    choice1:"<script href = 'xxx.js'>",
-    choice2:"<script name = 'xxx.js'>",
-    choice3:"<script src = 'xxx.js'>",
-    choice4:"<link src = 'xxx.js'>",
-    answer:1,
+    choices:["<script href = 'xxx.js'>","<script name = 'xxx.js'>","<script src = 'xxx.js'>","<link src = 'xxx.js'>"],
+    answer:"<script href = 'xxx.js'>",
   },
   {
     question: "How does a FOR loop start?",
-    choice1:"for i = 1 to 5",
-    choice2:"for (i <= 5; i++)",
-    choice3:"for (i = 0; i <= 5; i++)  ",
-    choice4:"for (i = 0; i <= 5)",
-    answer:3,
+    choices:["for i = 1 to 5","for (i <= 5; i++)","for (i = 0; i <= 5; i++)  ","for (i = 0; i <= 5)"],
+    answer:"for (i = 0; i <= 5; i++)  ",
   },
 ],
   questionsPython: [
   {
     question:"What is a correct syntax to output 'Hello World' in Python?",
-    choice1: "echo 'Hello World'",
-    choice2:"echo('Hello World');",
-    choice3:"print('Hello World')  ",
-    choice4:"p('Hello World')",
-    answer:3,
+    choices:["echo 'Hello World'","echo('Hello World');","print('Hello World')","p('Hello World')"],
+    answer:"print('Hello World')  ",
   },
   {
     question:"What is the correct file extension for Python files?",
-    choice1: ".pyt",
-    choice2:".py",
-    choice3:".pyth",
-    choice4:".pt",
-    answer:2,
+    choices:[".pyt",".py",".pyth",".pt"],
+    answer:".py",
   },
   {
     question:"Does Ben like Python",
-    choice1: "Hates it just like he hates horses",
-    choice2:"Loves it more than his cats",
-    choice3:" Its meh",
-    choice4:"All of the above",
-    answer:3,
+    choices:["Hates it just like he hates horses","Loves it more than his cats"," Its meh","All of the above"],
+    answer:" Its meh",
   },
   {
     question:"Why does David have an obsession with CSS",
-    choice1: "He loves himself some styling sheets",
-    choice2:"Makes him happy",
-    choice3:"Because he's a geek",
-    choice4:"All of the above",
-    answer:1,
+    choices: ["He loves himself some styling sheets","Makes him happy","Because he's a geek","All of the above"],
+    answer:"He loves himself some styling sheets",
   }
   
 ]
 }
-
 function getNodeQuestion() {
   return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
 }

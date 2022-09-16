@@ -23,8 +23,8 @@
   </video>
   <div class="btn-container">
     <h2>Select Quiz Mode</h2>
-      <div class="select-box">
-        <div class="mode-container ">
+      <div class="select-box" >
+        <div class="mode-container " id="mode-btns">
           <div class="modes">
             <button
               class="radio" 
@@ -37,7 +37,7 @@
         <div class="modes">
           <button
             class="radio" 
-            id="javascript" 
+            id="normal" 
             name='category'
           />
           <label for="javascript"> Javascript </label>
@@ -45,7 +45,7 @@
         <div class="modes">
           <button
             class="radio" 
-            id="python" 
+            id="normal" 
             name='category'
           />
           <label for="python"> Python </label>
@@ -59,8 +59,8 @@
     </div>
     
   <div id="quiz-selected">Select Quiz</div>
-    <div id="winner-container" class="animate__fadeInUp">
-    <h2 class="text animate__backInUp"></h2>
+    <div id="winner-container">
+    <h2 class="text"></h2>
     <p id="winner-msg"></p>
     <p id="score-number"></p>
     <p id="total">Your Score</p>
@@ -70,12 +70,12 @@
       00:00
     </div>
   </div>
-  <div id="question-board"> Questions </div>
+  <p id="question-board">Here are the questions</p>
     <div id="question-value" class="question-value">
-      <div class='choice1 choice'>1</div>
-      <div class='choice2 choice'>2</div>
-      <div class='choice3 choice'>3</div>
-      <div class='choice4 choice'>4</div>
+      <div class='choice1 choices'>1</div>
+      <div class='choice2 choices'>2</div>
+      <div class='choice3 choices'>3</div>
+      <div class='choice4 choices'>4</div>
     </div>
   </div>
   <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>

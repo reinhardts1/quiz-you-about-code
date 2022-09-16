@@ -1,8 +1,7 @@
 import {getJavascriptQuestion,getNodeQuestion, getPythonQuestion} 
 from "../data/qna.js"
-const quizModes = ['JAVASCRIPT','NODE','PYTHON']
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
-const quizModeBtn=document.querySelector('.select-box')
+const quizModeBtn=document.getElementById('mode-btns')
 const quizContainer=document.querySelector('.question-container')
 const ansChoices=Array.from(document.querySelectorAll('.choice'))
 const resetBtn=document.querySelector('#reset-btn')
@@ -15,8 +14,8 @@ const totalScoreMsg=document.querySelector('#total')
 const queDisplay=document.querySelector('#question-board')
 const questionTimer=document.querySelector('#timer')
 const userAnswer=document.querySelector('.question-value')
-const textAnimations=document.querySelector('.text')
-
+const selectContainer=document.querySelector('.btn-container')
+const quizModes = ['JAVASCRIPT','NODE','PYTHON']
 quizModeBtn.addEventListener('click', quizModes)
 resetBtn.addEventListener('click', init)
 
@@ -39,22 +38,7 @@ totalScoreMsg.style.visibility='hidden'
 queDisplay.style.visibility='hidden'
 userAnswer.style.display="none"
 questionTimer.style.visibility='hidden'
-
-
-
-}
-function selectQuiz(evt) {
-  if (evt.target.textContent !== 'random') {
-    mode=evt.target.textContent
-    selectMsg.textContent=`${evt.target.textContent.toUpperCase()}`
-  } else {
-    idx=Math.floor(Math.random() * quizModes.length)
-    mode=quizModes[idx]
-    selectMsg.textContent=`${mode.toUpperCase()}`
-    scoreCollector.style.visibility='visible'
-    quizContainer.style.display='none'
-  }
-  startTimer()
+selectContainer.style.display='inline-block'
 }
 function startTimer()  {
   clearInterval(timer)
@@ -69,8 +53,28 @@ function startTimer()  {
       
     }
   }, 100))
+  selectQuiz()
+}
+function selectQuiz(evt) {
+  if (evt.target.textContent !== 'random') {
+    mode=evt.target.textContent
+    selectMsg.textContent=`${evt.target.textContent.toUpperCase()}`
+  } else {
+    idx=Math.floor(Math.random() * quizModes.length)
+    mode=quizModes[idx]
+    selectMsg.textContent=`${mode.toUpperCase()}`
+    scoreCollector.style.visibility='visible'
+    quizContainer.style.display='none'
+  }
+  selectMsg.style.visibility='visible'
+  resetBtn.style.visibility='visible'
+  scoreCollector.style.visibility='visible'
+  quizContainer.style.display='flex'
+  selectContainer.style.display='none'
+  startTimer()
   renderQuestion()
 }
+
 function renderQuestion() {
   scoreCollector.textContent=`SCORE ${score}`
   if (mode==='JAVASCRIPT') {
@@ -85,81 +89,70 @@ function renderQuestion() {
   }
     if(!availableQuestions.includes(currentQuestion)) {
       availableQuestions.push(currentQuestion) 
-    } else renderQuestion()
+    } else {
+      renderQuestion()
 }
-queDisplay.textContent=currentQuestion.questions
+queDisplay.textContent=currentQuestion.question
 for(let i=0; i<ansChoices.length; i++) {
-  ansChoices[i].textContent=currentQuestion.choice[i]
-  ansChoices[i].addEventListener('click', onChooseOption)
+  ansChoices[i].textContent=currentQuestion.choices[i]
+  ansChoices[i].addEventListener('click', checkOptions)
+
+  }
+  correctAnswer=currentQuestion.answer
 }
 
 
-// console.log(quizModes);
-
-// init()
-
-// function init () {
-//   questionCounter = 0
-//   score = 0
-//   availableQuestion = [...questions]
 
 
-//   newQuestions()
-//   render()
+
+
+
+function checkOptions(evt) {
+  const currentAttribute=evt.target.getAttribute('class')
+  if(currentAttribute!== 'question-value') {
+    if(evt.target.textContent=== correctAnswer) {
+      evt.target.setAttribute('class',currentAttribute)
+      score += 25
+      answerChoices += 1
+    } else {
+      if (score >= 25) {
+        score -= 25
+      }
+    }
+  }
+  setTimeout(resetGame, 100)
+  questionCounter++
+}
+function resetGame() {
+  let newQuiz=''
+  for (let i=0; i<ansChoices.length; i++) {
+    const currentQuiz=ansChoices[i].getAttribute('class')
+    if(currentQuiz.includes('wrong')) {
+      answerChoices[i].setAttribute('class', newQuiz)
+    }
+  }
+  renderQuestion()
+}
+function getWinner() {
+  clearInterval(timer) 
+  if(ansChoices > 2) {
+    winner = true
+  } else {
+    winner = false
+  }
+  renderWinner()
+}
+function renderWinner() {
+  if (winner===true) {
+    winDisplay.style.display=`Good Job!`
+  } else if (winner===false) {
+    winDisplay.style.display=`Maybe next time!`
+  }
   
-// }
-
-// newQuestions= () => {
-  
-//   const questionsIndex=Math.floor(Math.random() * availableQuestion.length)
-//   currentQuestion = availableQuestion[questionsIndex]
-//   question.innerText = currentQuestion
+scoreMsg.textContent=`Your score: ${score}`
+}
 
 
-//   answerChoices.forEach(choice => {
-//   const number = choice.dataset['number']
-//   choice.innerText = currentQuestion['choice' + number]
-// })
-
-//   availableQuestion.splice(questionsIndex, 1)
-
-//   correctAnswer= true
-
-// }
-
-// answerChoicesCounter= () => {
-//   choice.addEventListener('click', evt => {
-//     if (!correctAnswer) 
-//     return
-
-//     correctAnswer = false
-//     const choicePicked = evt.target
-//     const answerPicked = choicePicked.dataset['number']
-//     let classToApply = answerPicked == currentQuestion.answer ? 'correct': 'incorrect'
-//     choicePicked.parentElement.classList.add(classToApply)
-    
-//     setInterval(() => {
-//       choicePicked.parentElement.classList.add(classToApply)
-//       newQuestions()
-//     })
-
-//   })
-  
-
-// }
-
-
-
-
-
-// startGame () {
-//   questionCounter = 0;
-//   score = 0;
-//   availableQuestion = [...getGameQuestions];
-//   console.log(availableQuestion);
-// }
-
-// startGame ();
 
 
 
