@@ -14,11 +14,11 @@
   <title>CODE QUIZ</title>
 </head>
 <body>
+  <h1> Quiz Code </h1>
   <div class="btn-container">
-    <h1> Quiz Code </h1>
+    <h2>Select Quiz Mode</h2>
       <div class="select-box">
         <div class="mode-container ">
-          
           <div class="modes">
             <input
               type="radio" 
@@ -48,8 +48,7 @@
           <label for="python"> Python </label>
         </div>
       </div>
-      <button type="button" class="btn btn-dark" href="/quiz/question.html">START</button>
-      
+      <button type="button" class="btn btn-dark"">START</button>
     </div>
     <div class="scoring-container">
       <div id="score-title"> 
@@ -60,8 +59,19 @@
       <div id="timer">
         00:00
       </div>
-      <div id="game" class="justify-center flex-column">
-        <h2 id="question">Here is my question?</h2>
+    <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>
+  <div id="quiz-selected">Select Quiz</div>
+  <div id="winner-box" class="animate__animated animate__fadeInDown">
+    <h2 class="text animate__animated animate__zoomInDown"></h2>
+    <p id="winner-text"></p>
+    <p id="score-text"></p>
+    <p id="total">You got</p>
+  </div>
+
+    <!-- <div id="game" class="justify-center flex-column">
+      <h2 id="question">Here is my question?</h2>
+
+
         <div class="choice-container">
           <p class="choice-label">A</p>
           <p class="choice-value" data-number="1">Choice 1</p>
@@ -79,7 +89,7 @@
           <p class="choice-value" data-number="4">Choice 4</p>
         </div>
       </div>
-    </div>
+    </div> -->
 </body>
 
 </html>
