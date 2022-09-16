@@ -5,26 +5,9 @@ from "../data/qna.js"
 
 
 /*-------------------------------- Constants ----------------------------*/
-const  
-
-
-
-
+const quizModes = ['JAVASCRIPT','NODE','PYTHON']
 /*---------------------------- Variables (state) ------------------------*/
-
-let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds
-
-// let currentQuestion = {};
-// let correctAnswer = true;
-// let availableQuestion = [];
-// let questionCounter = 0;
-// let score = 0;
-// let questions = (quizQuestions)
-// let endQuiz = availableQuestion> MAX_QUESTION;
-
-
-
-
+let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
 /*------------------------ Cached Element References --------------------*/
 const startBtn = document.querySelector("#start-button")
 const modeContainer=document.querySelector('.mode-container');
@@ -32,9 +15,9 @@ const selected=document.querySelector('.selected');
 const quizModes=document.querySelectorAll('.modes');
 const questionContainter = document.querySelector('.question-container')
 const startGame=document.querySelector('.start-btn');
+
 const question=document.getElementById('question')
 const scores=document.querySelector('#score')
-
 
 
 

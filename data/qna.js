@@ -97,10 +97,10 @@ const quizQuestions = {
   },
   {
     question:"Why does David have an obsession with CSS",
-    choice1: "He loves himself some styling sheets",
-    choice2:"Makes him happy",
-    choice3:"Because he's a geek",
-    choice4:"All of the above",
+    choiceA: "He loves himself some styling sheets",
+    choiceB:"Makes him happy",
+    choiceC:"Because he's a geek",
+    choiceD:"All of the above",
     answer:1,
   }
   

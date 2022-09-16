@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/style.css">
@@ -55,18 +57,30 @@
         SCORE:
       </div>
     </div>
-    <div class="question-container">
-      <div id="timer">
-        00:00
-      </div>
-    <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>
+    
   <div id="quiz-selected">Select Quiz</div>
-  <div id="winner-box" class="animate__animated animate__fadeInDown">
-    <h2 class="text animate__animated animate__zoomInDown"></h2>
-    <p id="winner-text"></p>
-    <p id="score-text"></p>
-    <p id="total">You got</p>
+    <div id="winner-container" class="animate__fadeInUp">
+    <h2 class="animate__backInUp"></h2>
+    <p id="winner-msg"></p>
+    <p id="score-number"></p>
+    <p id="total">Your Score</p>
+    </div>
+  <div class="question-container">
+    <div id="timer">
+      00:00
+    </div>
+  <div class="progress-bar">
+      <div class="progressfull"></div>
   </div>
+  <div id="question-board"> Questions </div>
+    <div id="question-value" class="question-value">
+      <div class='choice1 choice'>1</div>
+      <div class='choice2 choice'>2</div>
+      <div class='choice3 choice'>3</div>
+      <div class='choice4 choice'>4</div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>
 
     <!-- <div id="game" class="justify-center flex-column">
       <h2 id="question">Here is my question?</h2>
@@ -90,6 +104,7 @@
         </div>
       </div>
     </div> -->
+    
 </body>
 
 </html>
