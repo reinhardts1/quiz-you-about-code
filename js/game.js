@@ -9,15 +9,30 @@ const quizModes = ['JAVASCRIPT','NODE','PYTHON']
 /*---------------------------- Variables (state) ------------------------*/
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
 /*------------------------ Cached Element References --------------------*/
-const startBtn = document.querySelector("#start-button")
-const modeContainer=document.querySelector('.mode-container');
-const selected=document.querySelector('.selected');
-const quizModes=document.querySelectorAll('.modes');
-const questionContainter = document.querySelector('.question-container')
-const startGame=document.querySelector('.start-btn');
+const quizModeBtn=document.querySelector('.select-box')
+const quizContainer=document.querySelector('.question-container')
+const ansChoices=Array.from(document.querySelectorAll('.choice'))
+const resetBtn=document.querySelector('#reset-btn')
+const winContainer=document.querySelector('#winner-container')
+const selectMsg=document.querySelector('#quiz-selected')
+const prgBar=document.querySelector('.progress-bar')
+const flBar=document.querySelector('.progress-full')
+const scoreCollector=document.querySelector('#score-title')
+const
 
-const question=document.getElementById('question')
-const scores=document.querySelector('#score')
+
+
+
+
+// const startBtn = document.querySelector("#start-button")
+// const modeContainer=document.querySelector('.mode-container');
+// const selected=document.querySelector('.selected');
+// const quizModes=document.querySelectorAll('.modes');
+// const questionContainter = document.querySelector('.question-container')
+// const startGame=document.querySelector('.start-btn');
+
+// const question=document.getElementById('question')
+// const scores=document.querySelector('#score')
 
 
 
