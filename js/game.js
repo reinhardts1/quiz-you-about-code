@@ -31,6 +31,9 @@ const modeContainer=document.querySelector('.mode-container');
 const selected=document.querySelector('.selected');
 const quizModes=document.querySelectorAll('.modes');
 const questionContainter = document.querySelector('.question-container')
+const startGame=document.querySelector('.start-btn');
+const question=document.getElementById('question')
+const scores=document.querySelector('#score')
 
 
 
@@ -41,9 +44,6 @@ const questionContainter = document.querySelector('.question-container')
 
 
 
-// const startGame=document.querySelector('.start-btn');
-// const question=document.getElementById('question')
-// const scores=document.querySelector('#score')
 
 
 
