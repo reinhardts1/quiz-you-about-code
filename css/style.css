@@ -131,3 +131,38 @@ h2 {
 .choice-value {
   padding: 5px 25px 0 8px;
 }
+.scoring-container {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  height: 50%;
+  font-family: 'Oswald', sans-serif;
+  color: #ccc;
+  text-shadow: 1px 1px 5px black;
+}
+#score-title {
+  transform-style: preserve-3d;
+  position:absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateY(-500%) translateX(700%);
+
+}
+#score {
+  transform-style: preserve-3d;
+  font-size:90px;
+  line-height: 90px;
+  transform: translateY(-100%) translateX(1800%);
+}
+
+#tag {
+  transform-style: preserve-3d;
+  display: none;
+  position:absolute;
+  top: -55px;
+  left:50%;
+  transform: translateX(-50%);
+  font-size:50px;
+  line-height: 50px;
+}
+

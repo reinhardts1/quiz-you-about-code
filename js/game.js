@@ -5,8 +5,9 @@ from "../data/qna.js"
 
 
 /*-------------------------------- Constants ----------------------------*/
-const MAX_QUESTIONS = 16;
-const CORRECT_BONUS = 10;
+const HIGH_SCORE = 100
+const MAX_QUESTION = 10   
+
 
 
 
@@ -17,6 +18,7 @@ let availableQuestion = [];
 let questionCounter = 0;
 let score = 0;
 let questions = (quizQuestions)
+let endQuiz = availableQuestion> MAX_QUESTION;
 
 
 
@@ -37,7 +39,10 @@ const modeContainer=document.querySelector('.mode-container');
 const quizModes=document.querySelectorAll('.modes');
 const startGame=document.querySelector('.start-btn');
 const question=document.getElementById('question')
+const scoreTitle=document.querySelector('#scoring-container')
 const questionContainter = document.querySelector('.question-container')
+const answerChoices=Array.from(document.querySelectorAll(".choice-value"))
+
 
 
 
@@ -65,23 +70,11 @@ quizModes.forEach( modeElement => {
     modeContainer.classList.remove('active');
   })
 })
-
-// $(".start-btn").on("click", () => {
-//   $("body").toggleClass(".question-container")
-// });
-
 startGame.addEventListener('click', () => {
   startGame.style.display='none';
   questionContainter.style.display="block";
 })
-// startGame.addEventListener('click', () => {
-//   let startNow=[]
-//   if (selected.innerHTML === "Normal") {
-//     startNow = getGameQuestions;
-//   } 
-//   return startNow
 
-//   })
 
 
 
@@ -97,6 +90,23 @@ startGame.addEventListener('click', () => {
 
 
 /*-------------------------------- Functions ----------------------------*/
+init()
+
+function init () {
+  questionCounter = 0
+  score = 0
+  availableQuestion = [...questions]
+  newQuestion()
+  render()
+}
+
+newQuestion= () => {
+  if (availableQuestion.length === 0 || questionCounter > MAX_QUESTION ) {
+    questionCounter++
+  }
+}
+
+
 
 
 
