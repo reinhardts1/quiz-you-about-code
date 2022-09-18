@@ -1,32 +1,36 @@
-import { questionsJavascript,
+import {
+  questionsJavascript,
   questionsNode,
-  questionsPython} 
-from "../data/qna.js"
+  questionsPython
+}
+  from "../data/qna.js"
 
 
 // console.log(getJavascriptQuestion);
 // console.log(getNodeQuestion);
 // console.log(getPythonQuestion);
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode, quizQuestions
-const quizModeBtn=document.querySelector('.btn-container');
-const quizContainer=document.querySelector('.question-container')
+let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3');
+const quizBtns = document.querySelector('.btn-container')
+const quizContainer = document.querySelector('.question-container')
 // console.log(quizContainer, 'g');
 // console.log(quizContainer);
-const ansChoices=Array.from(document.querySelectorAll('.choices'))
+const ansChoices = Array.from(document.querySelectorAll('.choices'))
 // console.log(ansChoices, 'array');
-const resetBtn=document.querySelector('#reset-btn')
-const winContainer=document.querySelector('#winner-container')
+const resetBtn = document.querySelector('#reset-btn')
+const winContainer = document.querySelector('#winner-container')
 // const selectMsg=document.querySelector('#quiz-selected')
-const scoreCollector=document.querySelector('#score-title')
-const scoreMsg=document.querySelector('#score-msg')
-const winDisplay=document.querySelector('#winner-msg')
-const totalScoreMsg=document.querySelector('#total-score')
-const queDisplay=document.querySelector('#question-board')
-const questionTimer=document.querySelector('#timer')
-const qChoices=document.querySelector('.question-value')
-const startGame=document.querySelector('#start-btn')
+const scoreCollector = document.querySelector('#score-title')
+const scoreMsg = document.querySelector('#score-msg')
+const winDisplay = document.querySelector('#winner-msg')
+const totalScoreMsg = document.querySelector('#total-score')
+const queDisplay = document.querySelector('#question-board')
+const questionTimer = document.querySelector('#timer')
+const qChoices = document.querySelector('.question-value')
+const startGame = document.querySelector('#start-btn')
+const clickMessage=document.querySelector('.click-msg')
 // const selectContainer=document.querySelector('.select-box')
-const quizSelections = ['Javascript','Node','Python']
+const quizSelections = ['Javascript', 'Node', 'Python']
 
 
 
@@ -36,10 +40,13 @@ const quizSelections = ['Javascript','Node','Python']
 
 
 startGame.addEventListener('click', () => {
-  quizModeBtn.style.visibility="";
-  startGame.style.visibility='hidden'
+  quizBtns.style.visibility = ''
+  startGame.style.visibility = 'hidden'
 })
-quizModeBtn.addEventListener('click', selectQuiz)
+quizModeBtn.forEach(function (button) {
+  button.addEventListener('click', selectQuiz)
+
+})
 resetBtn.addEventListener('click', init)
 
 
@@ -49,18 +56,20 @@ resetBtn.addEventListener('click', init)
 init()
 
 function init() {
-  score=0
-  winner=null
-  questionCounter=0
-  correctAnswer=0
-  availableQuestions=[]
-  seconds= 30
-  resetBtn.style.visibility='hidden'
-  scoreCollector.style.visibility='hidden'
-  totalScoreMsg.style.visibility='hidden'
-  quizContainer.style.display='none'
-  questionTimer.style.visibility='hidden'
-  quizModeBtn.style.visibility='hidden'
+
+  console.log(quizModeBtn);
+  score = 0
+  winner = null
+  questionCounter = 0
+  correctAnswer = 0
+  availableQuestions = []
+  seconds = 30
+  resetBtn.style.visibility = 'hidden'
+  scoreCollector.style.visibility = 'hidden'
+  totalScoreMsg.style.visibility = 'hidden'
+  quizContainer.style.display = 'none'
+  questionTimer.style.visibility = 'hidden'
+  quizBtns.style.visibility = 'hidden'
   if (timer) {
     clearInterval(timer)
   }
@@ -68,42 +77,47 @@ function init() {
 
 
 function selectQuiz(event) {
-  quizContainer.style.display='flex'
-  quizModeBtn.style.display='none'
-// function selectQuiz(evt) {
-//   scoreCollector.style.visibility='visible'
-//   quizContainer.style.display='none'
-//   scoreCollector.style.visibility='visible'
-//   quizContainer.style.display='flex'
-//   selectContainer.style.display='none'
+  quizContainer.style.display = 'flex'
+  quizBtns.style.display = 'none'
+  // function selectQuiz(evt) {
+  //   scoreCollector.style.visibility='visible'
+  //   quizContainer.style.display='none'
+  //   scoreCollector.style.visibility='visible'
+  //   quizContainer.style.display='flex'
+  //   selectContainer.style.display='none'
 
-  if (event.target.textContent !== "n/a") {
-    quizQuestions = event.target.textContent
+  // if (event.target.textContent !== "n/a") {
+  //   quizQuestions = event.target.textContent
   // } else {
   //   idx = Math.floor(Math.random() * quizSelections.length)
   //   quizQuestions = quizSelections[idx]
   // }
   if (event.target.textContent === 'Python') {
+    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsPython
-  } else if(event.target.textContent === 'Javascript') {
+  } if (event.target.textContent === 'Javascript') {
+    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsJavascript
-  } else if (event.target.textContent === 'Node') {
+  } if (event.target.textContent === 'Node') {
+    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsNode
+
+    console.log(quizQuestions, 'Yalla Habib')
   }
   startTimer()
   renderQuestion()
 
-  } 
 }
+
 function startTimer() {
   clearInterval(timer)
-  timer= 
-    (setInterval(function() {
-    seconds-- 
-    if (seconds===0) {
-      getWinner()
-    }
-  }, 100))
+  timer =
+    (setInterval(function () {
+      seconds--
+      if (seconds === 0) {
+        getWinner()
+      }
+    }, 100))
 }
 
 
@@ -111,57 +125,69 @@ function startTimer() {
 
 //<------------------------------------------------------------->
 function getNodeQuestion() {
-  return questionsNode[Math.floor(Math.random() * questionsNode.length)]
+  idx= Math.floor(Math.random() * questionsNode.length)
+  return questionsNode[idx]
 }
 function getPythonQuestion() {
-  return questionsPython[Math.floor(Math.random() * questionsPython.length)]
+  idx= Math.floor(Math.random() * questionsPython.length)
+  return questionsPython[idx]
+  
 }
 function getJavascriptQuestion() {
-  return questionsJavascript[Math.floor(Math.random() * questionsJavascript.length)]
+  idx= Math.floor(Math.random() * questionsJavascript.length)
+  return questionsJavascript[idx]
 }
 
 
 function renderQuestion() {
-  if  (quizQuestions = 'Javascript') {
-    currentQuestion = getJavascriptQuestion() 
+  if (quizQuestions === questionsJavascript) {
+    currentQuestion = getJavascriptQuestion()
     console.log(currentQuestion, typeof currentQuestion, "here")
-  } else if (quizQuestions = 'Node') {
-    currentQuestion = getNodeQuestion() 
+  } else if (quizQuestions === questionsNode) {
+    currentQuestion = getNodeQuestion()
     console.log(currentQuestion, typeof currentQuestion, "here")
-  } else if (quizQuestions = 'Python') {
+  } else if (quizQuestions === questionsPython) {
     // currentQuestion = getPythonQuestion() 
-     currentQuestion= questionsPython[Math.floor(Math.random() * questionsPython.length)]
+    currentQuestion = getPythonQuestion()
     console.log(currentQuestion, typeof currentQuestion, "here")
-  } if (availableQuestions.length===4) {
-    setTimeout(getWinner(),100)
+  } if (availableQuestions.length === 4) {
+    setTimeout(getWinner(), 100)
   }
   // if(!availableQuestions.includes(currentQuestion)) {
   //   availableQuestions.push(currentQuestion)
   // } else {
-  queDisplay.textContent=currentQuestion.question
-  for(let i=0; i<ansChoices.length; i++) {
-    ansChoices[i].textContent=currentQuestion.choices[i]
-    ansChoices[i].addEventListener('click', onGetChoices)
+  queDisplay.textContent = currentQuestion.question
+  for (let i = 0; i < ansChoices.length; i++) {
+    ansChoices[i].textContent = currentQuestion.choices[i]
+    ansChoices[i].addEventListener('click', handleClick)
+    
 
-  
+    
+
+
   }
-  correctAnswer=currentQuestion.answer
+  quizQuestions.splice(idx,1)
+  correctAnswer = currentQuestion.answer
+  console.log(quizQuestions.length);
 }
 
-function onGetChoices(evt) {
-  const currentAttribute=evt.target.getAttribute('class')
-  if(currentAttribute!== 'question-value') {
-    if(evt.target.textContent=== correctAnswer) {
-      evt.target.setAttribute('class',currentAttribute)
+function handleClick(evt) {
+  const currentAttribute = evt.target.getAttribute('class')
+  if (currentAttribute !== 'question-value') {
+    if (evt.target.textContent === correctAnswer) {
+      evt.target.setAttribute('class', currentAttribute)
       score += 25
       answerChoices += 1
+      clickMessage.textContent="Nice Work"
     } else {
       if (score >= 25) {
         score -= 25
+        
       }
+      clickMessage.textContent='Unlucky'
     }
   }
-  // setTimeout(resetGame, 100)
+  setTimeout(resetGame, 100)
   questionCounter++
 }
 
@@ -173,19 +199,19 @@ function onGetChoices(evt) {
 
 
 // <---------------------------------------------------------->
-// function resetGame() {
-//   let newQuiz=''
-//   for (let i=0; i<ansChoices.length; i++) {
-//     const currentQuiz=ansChoices[i].getAttribute('class')
-//     if(currentQuiz.includes('wrong')) {
-//       answerChoices[i].setAttribute('class', newQuiz)
-//     }
-//   }
-//   renderQuestion()
-// }
+function resetGame() {
+  let newQuiz=''
+  for (let i=0; i<ansChoices.length; i++) {
+    const currentQuiz=ansChoices[i].getAttribute('class')
+    if(currentQuiz.includes('wrong')) {
+      answerChoices[i].setAttribute('class', newQuiz)
+    }
+  }
+  renderQuestion()
+}
 function getWinner() {
-  clearInterval(timer) 
-  if(ansChoices > 2) {
+  clearInterval(timer)
+  if (ansChoices > 2) {
     winner = true
   } else {
     winner = false
@@ -193,13 +219,13 @@ function getWinner() {
   renderWinner()
 }
 function renderWinner() {
-  if (winner===true) {
-    winDisplay.style.display=`Good Job!`
-  } else if (winner===false) {
-    winDisplay.style.display=`Maybe next time!`
+  if (winner === true) {
+    winDisplay.style.display = `Good Job!`
+  } else if (winner === false) {
+    winDisplay.style.display = `Maybe next time!`
   }
-  
-scoreMsg.textContent=`Your score: ${score}`
+
+  scoreMsg.textContent = `Your score: ${score}`
 }
 
 
