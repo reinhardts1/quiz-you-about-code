@@ -12,13 +12,17 @@ body {
 h1 {
   text-align: center;
   color: white;
+  font-family: 'Bungee Shade', cursive;
 }
 
 h2{
   color: white;
+  font-family: 'Bungee Shade', cursive;
+  text-align: center;
 }
 
 #start-btn {
+  margin-top: 250px;
   font-size: 25px;
   width:500px;
   height: 250px;
@@ -39,12 +43,10 @@ h2{
 .btn-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  padding: 32px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 50vh;
+  
 }
 #normal {
   width:300px;
@@ -103,6 +105,7 @@ h2{
   justify-content: center;
   text-align: left;
   flex-direction: column;
+  
 }
 
 h2 {

@@ -29,8 +29,9 @@ const questionTimer = document.querySelector('#timer')
 const qChoices = document.querySelector('.question-value')
 const startGame = document.querySelector('#start-btn')
 const clickMessage=document.querySelector('.click-msg')
+const header=document.querySelector('#header')
 // const selectContainer=document.querySelector('.select-box')
-const quizSelections = ['Javascript', 'Node', 'Python']
+// const quizSelections = ['Javascript', 'Node', 'Python']
 
 
 
@@ -57,7 +58,7 @@ init()
 
 function init() {
 
-  console.log(quizModeBtn);
+  
   score = 0
   winner = null
   questionCounter = 0
@@ -68,7 +69,7 @@ function init() {
   scoreCollector.style.visibility = 'hidden'
   totalScoreMsg.style.visibility = 'hidden'
   quizContainer.style.display = 'none'
-  questionTimer.style.visibility = 'hidden'
+  questionTimer.style.visibility = ''
   quizBtns.style.visibility = 'hidden'
   if (timer) {
     clearInterval(timer)
@@ -79,19 +80,8 @@ function init() {
 function selectQuiz(event) {
   quizContainer.style.display = 'flex'
   quizBtns.style.display = 'none'
-  // function selectQuiz(evt) {
-  //   scoreCollector.style.visibility='visible'
-  //   quizContainer.style.display='none'
-  //   scoreCollector.style.visibility='visible'
-  //   quizContainer.style.display='flex'
-  //   selectContainer.style.display='none'
-
-  // if (event.target.textContent !== "n/a") {
-  //   quizQuestions = event.target.textContent
-  // } else {
-  //   idx = Math.floor(Math.random() * quizSelections.length)
-  //   quizQuestions = quizSelections[idx]
-  // }
+  resetBtn.style.visibility = ''
+  header.style.visibility='hidden'
   if (event.target.textContent === 'Python') {
     console.log(event.target.textContent, 'button text');
     quizQuestions = questionsPython
@@ -111,13 +101,17 @@ function selectQuiz(event) {
 
 function startTimer() {
   clearInterval(timer)
+
+  console.log(timer, 'hello');
   timer =
-    (setInterval(function () {
-      seconds--
-      if (seconds === 0) {
+    setInterval(function () {
+      questionTimer.textContent=seconds + ' seconds left'
+      seconds-=1
+      if (seconds < 0) {
+        questionTimer.textContent="You're out of time."
         getWinner()
       }
-    }, 100))
+    }, 1000)
 }
 
 
@@ -160,11 +154,6 @@ function renderQuestion() {
   for (let i = 0; i < ansChoices.length; i++) {
     ansChoices[i].textContent = currentQuestion.choices[i]
     ansChoices[i].addEventListener('click', handleClick)
-    
-
-    
-
-
   }
   quizQuestions.splice(idx,1)
   correctAnswer = currentQuestion.answer
@@ -187,6 +176,7 @@ function handleClick(evt) {
       clickMessage.textContent='Unlucky'
     }
   }
+  startTimer()
   setTimeout(resetGame, 100)
   questionCounter++
 }
