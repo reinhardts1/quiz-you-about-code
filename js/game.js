@@ -8,19 +8,20 @@ from "../data/qna.js"
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
 const quizModeBtn=document.querySelector('.btn-container');
 const quizContainer=document.querySelector('.question-container')
+// console.log(quizContainer, 'g');
 // console.log(quizContainer);
 const ansChoices=Array.from(document.querySelectorAll('.choices'))
-// console.log(ansChoices);
+// console.log(ansChoices, 'array');
 const resetBtn=document.querySelector('#reset-btn')
 const winContainer=document.querySelector('#winner-container')
 // const selectMsg=document.querySelector('#quiz-selected')
 const scoreCollector=document.querySelector('#score-title')
-const scoreMsg=document.querySelector('#score-number')
+const scoreMsg=document.querySelector('#score-msg')
 const winDisplay=document.querySelector('#winner-msg')
 const totalScoreMsg=document.querySelector('#total-score')
 const queDisplay=document.querySelector('#question-board')
 const questionTimer=document.querySelector('#timer')
-const questionChoices=document.querySelector('.question-value')
+const qChoices=document.querySelector('.question-value')
 const startGame=document.querySelector('#start-btn')
 // const selectContainer=document.querySelector('.select-box')
 
@@ -28,6 +29,7 @@ const startGame=document.querySelector('#start-btn')
 
 
 const quizSelections = ['Javascript','Node','Python']
+
 
 
 
@@ -54,8 +56,7 @@ function init() {
   resetBtn.style.visibility='hidden'
   scoreCollector.style.visibility='hidden'
   totalScoreMsg.style.visibility='hidden'
-  queDisplay.style.visibility='hidden'
-  questionChoices.style.visibility="hidden"
+  quizContainer.style.display='none'
   questionTimer.style.visibility='hidden'
   quizModeBtn.style.visibility='hidden'
   if (timer) {
@@ -65,7 +66,7 @@ function init() {
 
 
 function selectQuiz(event) {
-  quizContainer.style.display='flex'
+  quizContainer.style.visibility=''
 // function selectQuiz(evt) {
 //   scoreCollector.style.visibility='visible'
 //   quizContainer.style.display='none'
@@ -75,7 +76,7 @@ function selectQuiz(event) {
 //   quizContainer.style.display='flex'
 //   selectContainer.style.display='none'
 
-  if (event.target.textContent !== "something") {
+  if (event.target.textContent !== "n/a") {
     quizQuestions = event.target.textContent
   } else {
     idx = Math.floor(Math.random() * quizSelections.length)
