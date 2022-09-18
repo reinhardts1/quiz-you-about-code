@@ -4,10 +4,13 @@
   letter-spacing: 4px;
 }
 
+
+
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(#e66465, #9198e5);
   text-align: center;
+  overflow:hidden;
 }
 h1 {
   text-align: center;
@@ -19,6 +22,13 @@ h2{
   color: white;
   font-family: 'Bungee Shade', cursive;
   text-align: center;
+}
+
+.body-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #start-btn {
@@ -101,10 +111,12 @@ h2{
 
 
 .question-container {
-  display: grid;
+  display: flex;
   justify-content: center;
   text-align: left;
   flex-direction: column;
+  align-items: center;
+  margin-top: -150px;
   
 }
 
@@ -117,7 +129,7 @@ h2 {
 
 
 
-#score-title {
+/* #score-title {
   display: flex;
   justify-content: center;
   width: 25%;
@@ -126,12 +138,10 @@ h2 {
   color: #ccc;
   text-shadow: 1px 1px 5px black;
   transform-style: preserve-3d;
-  position:absolute;
   top: 25%;
   left: 50%;
-  transform: translateY(-500%) translateX(700%);
 
-}
+} */
 
 
 
@@ -160,7 +170,7 @@ h2 {
   color: rgb(0, 0, 0);
   font: bold;
   font-size: medium;
-  transform: translateY(2%) translateX(-3%);
+  
 }
 #board>p {
   padding: 4vh 8vw 2vh;
@@ -194,6 +204,10 @@ h2 {
 #total {
   text-align: center;
   color: white;
+}
+
+#winner-container{
+  margin-top: -250px;
 }
 
 

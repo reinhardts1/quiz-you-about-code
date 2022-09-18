@@ -28,8 +28,8 @@ const queDisplay = document.querySelector('#question-board')
 const questionTimer = document.querySelector('#timer')
 const qChoices = document.querySelector('.question-value')
 const startGame = document.querySelector('#start-btn')
-const clickMessage=document.querySelector('.click-msg')
-const header=document.querySelector('#header')
+const clickMessage = document.querySelector('.click-msg')
+const header = document.querySelector('#header')
 // const selectContainer=document.querySelector('.select-box')
 // const quizSelections = ['Javascript', 'Node', 'Python']
 
@@ -48,7 +48,7 @@ quizModeBtn.forEach(function (button) {
   button.addEventListener('click', selectQuiz)
 
 })
-resetBtn.addEventListener('click', init)
+resetBtn.addEventListener('click', resetGame)
 
 
 
@@ -58,7 +58,7 @@ init()
 
 function init() {
 
-  
+
   score = 0
   winner = null
   questionCounter = 0
@@ -78,10 +78,11 @@ function init() {
 
 
 function selectQuiz(event) {
+
   quizContainer.style.display = 'flex'
   quizBtns.style.display = 'none'
   resetBtn.style.visibility = ''
-  header.style.visibility='hidden'
+  header.style.visibility = 'hidden'
   if (event.target.textContent === 'Python') {
     console.log(event.target.textContent, 'button text');
     quizQuestions = questionsPython
@@ -105,10 +106,10 @@ function startTimer() {
   console.log(timer, 'hello');
   timer =
     setInterval(function () {
-      questionTimer.textContent=seconds + ' seconds left'
-      seconds-=1
+      questionTimer.textContent = seconds + 'seconds left'
+      seconds -= 1
       if (seconds < 0) {
-        questionTimer.textContent="You're out of time."
+        questionTimer.textContent = "You're out of time."
         getWinner()
       }
     }, 1000)
@@ -119,16 +120,16 @@ function startTimer() {
 
 //<------------------------------------------------------------->
 function getNodeQuestion() {
-  idx= Math.floor(Math.random() * questionsNode.length)
+  idx = Math.floor(Math.random() * questionsNode.length)
   return questionsNode[idx]
 }
 function getPythonQuestion() {
-  idx= Math.floor(Math.random() * questionsPython.length)
+  idx = Math.floor(Math.random() * questionsPython.length)
   return questionsPython[idx]
-  
+
 }
 function getJavascriptQuestion() {
-  idx= Math.floor(Math.random() * questionsJavascript.length)
+  idx = Math.floor(Math.random() * questionsJavascript.length)
   return questionsJavascript[idx]
 }
 
@@ -150,14 +151,24 @@ function renderQuestion() {
   // if(!availableQuestions.includes(currentQuestion)) {
   //   availableQuestions.push(currentQuestion)
   // } else {
-  queDisplay.textContent = currentQuestion.question
-  for (let i = 0; i < ansChoices.length; i++) {
-    ansChoices[i].textContent = currentQuestion.choices[i]
-    ansChoices[i].addEventListener('click', handleClick)
+
+  if (quizQuestions.length > 0) {
+    queDisplay.textContent = currentQuestion.question
+
+
+    for (let i = 0; i < ansChoices.length; i++) {
+
+      ansChoices[i].textContent = currentQuestion.choices[i]
+      ansChoices[i].addEventListener('click', handleClick)
+
+    }
+
+    quizQuestions.splice(idx, 1)
+    correctAnswer = currentQuestion.answer
   }
-  quizQuestions.splice(idx,1)
-  correctAnswer = currentQuestion.answer
-  console.log(quizQuestions.length);
+
+
+  // console.log(quizQuestions.length);
 }
 
 function handleClick(evt) {
@@ -167,17 +178,18 @@ function handleClick(evt) {
       evt.target.setAttribute('class', currentAttribute)
       score += 25
       answerChoices += 1
-      clickMessage.textContent="Nice Work"
+      clickMessage.textContent = "Nice Work"
     } else {
       if (score >= 25) {
         score -= 25
-        
+
       }
-      clickMessage.textContent='Unlucky'
+      clickMessage.textContent = 'Unlucky'
     }
   }
-  startTimer()
-  setTimeout(resetGame, 100)
+  // startTimer()
+  renderQuestion()
+  // setTimeout(clearInterval(timer), 1000)
   questionCounter++
 }
 
@@ -190,37 +202,54 @@ function handleClick(evt) {
 
 // <---------------------------------------------------------->
 function resetGame() {
-  let newQuiz=''
-  for (let i=0; i<ansChoices.length; i++) {
-    const currentQuiz=ansChoices[i].getAttribute('class')
-    if(currentQuiz.includes('wrong')) {
-      answerChoices[i].setAttribute('class', newQuiz)
-    }
-  }
-  renderQuestion()
+
+  // quizContainer.style.display = 'hidden'
+  // quizBtns.style.display = 'hidden'
+  // resetBtn.style.visibility = 'hidden'
+  header.style.visibility = ''
+  startGame.style.visibility = ""
+  quizBtns.style.display = 'none'
+  // quizContainer.style.display='flex'
+
+
+
+  // let newQuiz=''
+  // for (let i=0; i<ansChoices.length; i++) {
+  //   const currentQuiz=ansChoices[i].getAttribute('class')
+  //   if(currentQuiz.includes('wrong')) {
+  //     answerChoices[i].setAttribute('class', newQuiz)
+  //   }
+  // }
+
+  window.location.reload()
 }
 function getWinner() {
-  clearInterval(timer)
-  if (ansChoices > 2) {
-    winner = true
-  } else {
-    winner = false
+  if (quizQuestions.length <= 1) {
+    if (totalScoreMsg == 100) {
+      winner = true
+    }
+    else {
+      winner = false
+    }
+    renderWinner()
   }
-  renderWinner()
+  else if (questionTimer.textContent=== "You're out of time.") {
+    winner= false
+    renderWinner()
+  }
+  
 }
+
+
 function renderWinner() {
-  if (winner === true) {
-    winDisplay.style.display = `Good Job!`
-  } else if (winner === false) {
-    winDisplay.style.display = `Maybe next time!`
+    if (winner === true) {
+      winDisplay.style.display = `Good Job!`
+    } else if (winner === false) {
+      winDisplay.style.display = `Maybe next time!`
+    }
+
+    scoreMsg.textContent = `Your score: ${score}`
   }
-
-  scoreMsg.textContent = `Your score: ${score}`
-}
-
-
-
-
 
 
 
