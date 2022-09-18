@@ -13,18 +13,19 @@
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/game.js" type="module"></script>
 
-  <title>CODE QUIZ</title>
+  <title>QUIZ CODE</title>
 </head>
 <body>
   
-  <h1> Quiz Code </h1>
+  <h1> QUIZ CODE </h1>
+  <button type="button" class="btn btn-outline-success" id="start-btn">START</button>
   <video autoplay loop muted plays-inline class="back-video">
     <source src="./img & vid/Tunnel - 26475.mp4" type="video/mp4">
   </video>
   <div class="btn-container">
     <h2>Select Quiz Mode</h2>
       <div class="select-box" >
-        <div class="mode-container " id="mode-btns">
+        <div class="mode-container" id="mode-btns">
           <div class="modes">
             <button
               class="radio" 
@@ -52,33 +53,32 @@
         </div>
       </div>
     </div>
-    <div class="scoring-container">
-      <div id="score-title"> 
-        SCORE:
-      </div>
-    </div>
-    
-  <div id="quiz-selected">Select Quiz</div>
-    <div id="winner-container">
+  </div>
+  <div id="winner-container">
     <h2 class="text"></h2>
     <p id="winner-msg"></p>
+    <p id="total-score">Your Score Is</p>
     <p id="score-number"></p>
-    <p id="total">Your Score</p>
-    </div>
+    
+  </div>
   <div class="question-container">
     <div id="timer">
       00:00
     </div>
-  </div>
-  <p id="question-board">Here are the questions</p>
-    <div id="question-value" class="question-value">
-      <div class='choice1 choices'>1</div>
-      <div class='choice2 choices'>2</div>
-      <div class='choice3 choices'>3</div>
-      <div class='choice4 choices'>4</div>
-    </div>
+
+    <p id="question-board">Here are the questions</p>
+      <div id="question-value" class="question-value">
+          <div class='choice1 choices'>1</div>
+          <div class='choice2 choices'>2</div>
+          <div class='choice3 choices'>3</div>
+        <div class='choice4 choices'>4</div>
+      </div>
   </div>
   <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>
+  <div id="score-title"> 
+    SCORE:
+  </div>
+
 
     <!-- <div id="game" class="justify-center flex-column">
       <h2 id="question">Here is my question?</h2>

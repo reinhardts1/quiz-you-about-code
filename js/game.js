@@ -1,156 +1,196 @@
-import {getJavascriptQuestion,getNodeQuestion, getPythonQuestion} 
+import {getNodeQuestion, getJavascriptQuestion, getPythonQuestion} 
 from "../data/qna.js"
+
+
+// console.log(getJavascriptQuestion);
+// console.log(getNodeQuestion);
+// console.log(getPythonQuestion);
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode
-const quizModeBtn=document.getElementById('mode-btns')
+const quizModeBtn=document.querySelector('.btn-container');
 const quizContainer=document.querySelector('.question-container')
-const ansChoices=Array.from(document.querySelectorAll('.choice'))
+// console.log(quizContainer);
+const ansChoices=Array.from(document.querySelectorAll('.choices'))
+// console.log(ansChoices);
 const resetBtn=document.querySelector('#reset-btn')
 const winContainer=document.querySelector('#winner-container')
-const selectMsg=document.querySelector('#quiz-selected')
+// const selectMsg=document.querySelector('#quiz-selected')
 const scoreCollector=document.querySelector('#score-title')
 const scoreMsg=document.querySelector('#score-number')
 const winDisplay=document.querySelector('#winner-msg')
-const totalScoreMsg=document.querySelector('#total')
+const totalScoreMsg=document.querySelector('#total-score')
 const queDisplay=document.querySelector('#question-board')
 const questionTimer=document.querySelector('#timer')
-const userAnswer=document.querySelector('.question-value')
-const selectContainer=document.querySelector('.btn-container')
-const quizModes = ['JAVASCRIPT','NODE','PYTHON']
-quizModeBtn.addEventListener('click', quizModes)
+const questionChoices=document.querySelector('.question-value')
+const startGame=document.querySelector('#start-btn')
+// const selectContainer=document.querySelector('.select-box')
+
+
+
+
+const quizSelections = ['Javascript','Node','Python']
+
+
+
+startGame.addEventListener('click', () => {
+  quizModeBtn.style.visibility="";
+  startGame.style.visibility='hidden'
+})
+quizModeBtn.addEventListener('click', selectQuiz)
 resetBtn.addEventListener('click', init)
+
+
+
+
 
 init()
 
 function init() {
+  score=0
+  winner=null
+  questionCounter=0
+  correctAnswer=0
+  availableQuestions=[]
+  seconds= 30
+  resetBtn.style.visibility='hidden'
+  scoreCollector.style.visibility='hidden'
+  totalScoreMsg.style.visibility='hidden'
+  queDisplay.style.visibility='hidden'
+  questionChoices.style.visibility="hidden"
+  questionTimer.style.visibility='hidden'
+  quizModeBtn.style.visibility='hidden'
   if (timer) {
     clearInterval(timer)
   }
-score=0
-winner=null
-questionCounter=0
-correctAnswer=0
-availableQuestions=[]
-seconds=80
-resetBtn.style.visibility='hidden'
-selectMsg.style.visibility='hidden'
-scoreCollector.style.visibility='hidden'
-totalScoreMsg.style.visibility='hidden'
-queDisplay.style.visibility='hidden'
-userAnswer.style.display="none"
-questionTimer.style.visibility='hidden'
-selectContainer.style.display='inline-block'
 }
-function startTimer()  {
-  clearInterval(timer)
-  timer= (setInterval(function () {
-    seconds-- 
-    if(seconds<30) {
-      questionTimer.textContent=`0${seconds}`
-    } else if (seconds>=30) {
-      questionTimer.textContent=`${seconds}`
-    } if (seconds===0) {
-      getWinner()
-      
-    }
-  }, 100))
-  selectQuiz()
-}
-function selectQuiz(evt) {
-  if (evt.target.textContent !== 'random') {
-    mode=evt.target.textContent
-    selectMsg.textContent=`${evt.target.textContent.toUpperCase()}`
-  } else {
-    idx=Math.floor(Math.random() * quizModes.length)
-    mode=quizModes[idx]
-    selectMsg.textContent=`${mode.toUpperCase()}`
-    scoreCollector.style.visibility='visible'
-    quizContainer.style.display='none'
-  }
-  selectMsg.style.visibility='visible'
-  resetBtn.style.visibility='visible'
-  scoreCollector.style.visibility='visible'
+
+
+function selectQuiz(event) {
   quizContainer.style.display='flex'
-  selectContainer.style.display='none'
+// function selectQuiz(evt) {
+//   scoreCollector.style.visibility='visible'
+//   quizContainer.style.display='none'
+//   selectMsg.style.visibility='visible'
+//   resetBtn.style.visibility='visible'
+//   scoreCollector.style.visibility='visible'
+//   quizContainer.style.display='flex'
+//   selectContainer.style.display='none'
+
+  if (event.target.textContent !== "something") {
+    quizQuestions = event.target.textContent
+  } else {
+    idx = Math.floor(Math.random() * quizSelections.length)
+    quizQuestions = quizSelections[idx]
+  }
   startTimer()
   renderQuestion()
 }
+function startTimer() {
+  clearInterval(timer)
+  timer= 
+    (setInterval(function() {
+    seconds-- 
+    if (seconds===0) {
+      getWinner()
+    }
+  }, 1000))
+}
+
+
+
+
+//<------------------------------------------------------------->
 
 function renderQuestion() {
-  scoreCollector.textContent=`SCORE ${score}`
-  if (mode==='JAVASCRIPT') {
-    currentQuestion=getJavascriptQuestion()
-  } else if (mode==='NODE') {
-    currentQuestion=getNodeQuestion()
-  } else if (mode==='PYTHON') {
-    currentQuestion=getPythonQuestion()
-  }
-  if (availableQuestions.length===4) {
-    setTimeout(getWinner(),100)
-  }
-    if(!availableQuestions.includes(currentQuestion)) {
-      availableQuestions.push(currentQuestion) 
-    } else {
-      renderQuestion()
-}
-queDisplay.textContent=currentQuestion.question
-for(let i=0; i<ansChoices.length; i++) {
-  ansChoices[i].textContent=currentQuestion.choices[i]
-  ansChoices[i].addEventListener('click', checkOptions)
-
-  }
-  correctAnswer=currentQuestion.answer
-}
-
-
-
-
-
-
-
-function checkOptions(evt) {
-  const currentAttribute=evt.target.getAttribute('class')
-  if(currentAttribute!== 'question-value') {
-    if(evt.target.textContent=== correctAnswer) {
-      evt.target.setAttribute('class',currentAttribute)
-      score += 25
-      answerChoices += 1
-    } else {
-      if (score >= 25) {
-        score -= 25
-      }
-    }
-  }
-  setTimeout(resetGame, 100)
-  questionCounter++
-}
-function resetGame() {
-  let newQuiz=''
-  for (let i=0; i<ansChoices.length; i++) {
-    const currentQuiz=ansChoices[i].getAttribute('class')
-    if(currentQuiz.includes('wrong')) {
-      answerChoices[i].setAttribute('class', newQuiz)
-    }
+  if  (quizQuestions = 'Javascript') {
+    currentQuestion = getJavascriptQuestion()
+  } else if (quizQuestions = 'Node') {
+    currentQuestion = getNodeQuestion()
+  } else if (quizQuestions = 'Python') {
+    currentQuestion = getPythonQuestion()
   }
   renderQuestion()
+    
+
 }
-function getWinner() {
-  clearInterval(timer) 
-  if(ansChoices > 2) {
-    winner = true
-  } else {
-    winner = false
-  }
-  renderWinner()
-}
-function renderWinner() {
-  if (winner===true) {
-    winDisplay.style.display=`Good Job!`
-  } else if (winner===false) {
-    winDisplay.style.display=`Maybe next time!`
-  }
+
+// function renderQuestion() {
+//   scoreCollector.textContent=`SCORE ${score}`
+//   if (quizQuestions==='Javascript') {
+//     currentQuestion=getJavascriptQuestion()
+//   } else if (quizQuestions==='Node') {
+//     currentQuestion=getNodeQuestion()
+//   } else if (quizQuestions==='Python') {
+//     currentQuestion=getPythonQuestion()
+//   }
+//   if (availableQuestions.length===4) {
+//     setTimeout(getWinner(),100)
+//   }
+//     if(!availableQuestions.includes(currentQuestion)) {
+//       availableQuestions.push(currentQuestion) 
+//     } else {
+//       renderQuestion()
+//       // console.log();
+// }
+// queDisplay.textContent=currentQuestion
+// for(let i=0; i<ansChoices.length; i++) {
+//   ansChoices[i].textContent=currentQuestion.choices[i]
+//   ansChoices[i].addEventListener('click', checkOptions)
+
+//   }
+//   correctAnswer=currentQuestion.answer
+// }
+
+
+
+
+
+//<------------------------------------------------------------->
+
+// function checkOptions(evt) {
+//   const currentAttribute=evt.target.getAttribute('class')
+//   if(currentAttribute!== 'question-value') {
+//     if(evt.target.textContent=== correctAnswer) {
+//       evt.target.setAttribute('class',currentAttribute)
+//       score += 25
+//       answerChoices += 1
+//     } else {
+//       if (score >= 25) {
+//         score -= 25
+//       }
+//     }
+//   }
+//   setTimeout(resetGame, 100)
+//   questionCounter++
+// }
+// <---------------------------------------------------------->
+// function resetGame() {
+//   let newQuiz=''
+//   for (let i=0; i<ansChoices.length; i++) {
+//     const currentQuiz=ansChoices[i].getAttribute('class')
+//     if(currentQuiz.includes('wrong')) {
+//       answerChoices[i].setAttribute('class', newQuiz)
+//     }
+//   }
+//   renderQuestion()
+// }
+// function getWinner() {
+//   clearInterval(timer) 
+//   if(ansChoices > 2) {
+//     winner = true
+//   } else {
+//     winner = false
+//   }
+//   renderWinner()
+// }
+// function renderWinner() {
+//   if (winner===true) {
+//     winDisplay.style.display=`Good Job!`
+//   } else if (winner===false) {
+//     winDisplay.style.display=`Maybe next time!`
+//   }
   
-scoreMsg.textContent=`Your score: ${score}`
-}
+// scoreMsg.textContent=`Your score: ${score}`
+// }
 
 
 
