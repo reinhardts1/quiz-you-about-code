@@ -1,6 +1,6 @@
-const quizQuestions = {
+// const quizQuestions = {
 
-  questionsNode:[
+const questionsNode= [
   {
     question: "How are Node based web servers are different from traditional web servers?",
     choices:["Node based server process request much faster than traditional server.","Node based server uses a single threaded model and can services much larger number of requests than traditional server like Apache HTTP Server.","There is not much difference between the two.","There is not much difference between the two.","None of the above."],
@@ -21,8 +21,8 @@ const quizQuestions = {
     choices:["Global objects are global in nature and they are available in all modules.","Global objects are nore required to be included in application, rather they can be used directly.","Both of the above.","None of the above."],
     answer:"Both of the above.",
   },
-],
-  questionsJavascript:[
+]
+const questionsJavascript=[
 
   {
     question:"Inside which HTML element do we put the JavaScript?",
@@ -45,8 +45,8 @@ const quizQuestions = {
     choices:["for i = 1 to 5","for (i <= 5; i++)","for (i = 0; i <= 5; i++)  ","for (i = 0; i <= 5)"],
     answer:"for (i = 0; i <= 5; i++)  ",
   },
-],
-  questionsPython: [
+]
+const questionsPython= [
   {
     question:"What is a correct syntax to output 'Hello World' in Python?",
     choices:["echo 'Hello World'","echo('Hello World');","print('Hello World')","p('Hello World')"],
@@ -69,17 +69,17 @@ const quizQuestions = {
   }
   
 ]
-}
 
-function getNodeQuestion() {
-  return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
-}
-function getPythonQuestion() {
-  return quizQuestions.questionsPython[Math.floor(Math.random() * quizQuestions.questionsPython.length)]
-}
-function getJavascriptQuestion() {
-  return quizQuestions.questionsJavascript[Math.floor(Math.random() * quizQuestions.questionsJavascript.length)]
-}
+
+// function getNodeQuestion() {
+//   return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
+// }
+// function getPythonQuestion() {
+//   return quizQuestions.questionsPython[Math.floor(Math.random() * quizQuestions.questionsPython.length)]
+// }
+// function getJavascriptQuestion() {
+//   return quizQuestions.qJavascript[Math.floor(Math.random() * quizQuestions.qJavascript.length)]
+// }
 
 // function getNodeQuestion() {
 //   return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
@@ -94,7 +94,7 @@ function getJavascriptQuestion() {
 
 
 export {
-  getNodeQuestion,
-  getJavascriptQuestion,
-  getPythonQuestion
+  questionsJavascript,
+  questionsNode,
+  questionsPython
 }
