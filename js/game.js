@@ -138,7 +138,7 @@ function renderQuestion() {
 
   } else if (quizQuestions = questionsReact) {
     currentQuestion = getReactQuestions()
-    
+
   } setTimeout(getWinner(), 1000)
   if (quizQuestions.length > 0) {
     queDisplay.textContent = currentQuestion.question
@@ -168,11 +168,9 @@ function handleClick(evt) {
       clickMessage.textContent = 'Unlucky'
     }
   }
-  // startTimer()
+
   renderQuestion()
-  
-  // setTimeout(clearInterval(timer), 1000)
-  // questionCounter++
+
 }
 
 
@@ -191,7 +189,7 @@ function resetGame() {
   window.location.reload()
 }
 function getWinner() {
-  
+
   if (quizQuestions.length <= 0) {
     if (totalScoreMsg == 100) {
       winner = true
@@ -202,7 +200,7 @@ function getWinner() {
   }
   else if (questionTimer.textContent === "You're out of time.") {
     winner = false
-    
+
   }
   renderWinner()
 
@@ -212,12 +210,12 @@ function getWinner() {
 function renderWinner() {
   if (winner === true) {
     winContainer.style.display = 'flex'
-    quizContainer.style.visibility='hidden'
+    quizContainer.style.visibility = 'hidden'
     winDisplay.textContent = 'Congratulations'
 
   } else if (winner === false) {
     winContainer.style.display = 'flex'
-    quizContainer.style.visibility='hidden'
+    quizContainer.style.visibility = 'hidden'
     winDisplay.textContent = 'Maybe you need a bit more practice!'
   }
 
@@ -239,28 +237,5 @@ function renderWinner() {
 
 
 
-
-
-
-// PSEUDOCODE FOR CODE QUIZ 
-
-// Add HTML for a START BUTTON.
-// Add HTML for a PLAYER NAME INPUT.
-// Add HTML for a DROP DOWN GAME MODE MENU.
-// Add HTML for a SCORE PROGRESS BAR.
-// Add HTML for QUESTIONS.
-// Add HTML for YOUR PERFORMANCE
-// Add HTML for PLAYER PERFORMANCES
-// Add a container card for elements to be appended to. 
-// Add cached element references for each of the starting game state elements in the JS file.
-// Attach event listeners.
-// Write and export functions to access the answers and questions data file.
-// Recheck every function to make sure they are working properly as intended for its use. 
-// Store answers in variables by tweaking with the event listeners.
-// Create a render function. 
-// Make a function to handle appending a card to the container element.
-// Add a button to reset the quiz. 
-// Add styling to ensure the quiz looks different for different media, (desktop and phone).
-// Add Dark/Light Mode & a Favicon.  
 
 
