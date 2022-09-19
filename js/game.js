@@ -1,7 +1,8 @@
 import {
   questionsJavascript,
   questionsNode,
-  questionsPython
+  questionsPython,
+  questionsReact
 }
   from "../data/qna.js"
 
@@ -9,8 +10,8 @@ import {
 // console.log(getJavascriptQuestion);
 // console.log(getNodeQuestion);
 // console.log(getPythonQuestion);
-let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizMode, quizQuestions
-let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3');
+let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
+let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3, .radio4',);
 const quizBtns = document.querySelector('.btn-container')
 const quizContainer = document.querySelector('.question-container')
 // console.log(quizContainer, 'g');
@@ -26,13 +27,14 @@ const winDisplay = document.querySelector('#winner-msg')
 const totalScoreMsg = document.querySelector('#total-score')
 const queDisplay = document.querySelector('#question-board')
 const questionTimer = document.querySelector('#timer')
-const qChoices = document.querySelector('.question-value')
+// const qChoices = document.querySelector('.question-value')
 const startGame = document.querySelector('#start-btn')
 const clickMessage = document.querySelector('.click-msg')
 const header = document.querySelector('#header')
-// const selectContainer=document.querySelector('.select-box')
-// const quizSelections = ['Javascript', 'Node', 'Python']
 
+
+const correctSound = new Audio('../assets/audios/correct sound.wav')
+const inccorectSound = new Audio('../assets/audios/incorrect sound.mp3')
 
 
 
@@ -84,16 +86,13 @@ function selectQuiz(event) {
   resetBtn.style.visibility = ''
   header.style.visibility = 'hidden'
   if (event.target.textContent === 'Python') {
-    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsPython
   } if (event.target.textContent === 'Javascript') {
-    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsJavascript
   } if (event.target.textContent === 'Node') {
-    console.log(event.target.textContent, 'button text');
     quizQuestions = questionsNode
-
-    console.log(quizQuestions, 'Yalla Habib')
+  } if (event.target.textContent === 'React') {
+    quizQuestions = questionsReact
   }
   startTimer()
   renderQuestion()
@@ -103,10 +102,10 @@ function selectQuiz(event) {
 function startTimer() {
   clearInterval(timer)
 
-  console.log(timer, 'hello');
+
   timer =
     setInterval(function () {
-      questionTimer.textContent = seconds + 'seconds left'
+      questionTimer.textContent = seconds + ' seconds left'
       seconds -= 1
       if (seconds < 0) {
         questionTimer.textContent = "You're out of time."
@@ -132,43 +131,36 @@ function getJavascriptQuestion() {
   idx = Math.floor(Math.random() * questionsJavascript.length)
   return questionsJavascript[idx]
 }
+function getReactQuestions() {
+  idx = Math.floor(Math.random() * questionsReact.length)
+  return questionsReact[idx]
+}
 
 
 function renderQuestion() {
   if (quizQuestions === questionsJavascript) {
     currentQuestion = getJavascriptQuestion()
-    console.log(currentQuestion, typeof currentQuestion, "here")
+
   } else if (quizQuestions === questionsNode) {
     currentQuestion = getNodeQuestion()
-    console.log(currentQuestion, typeof currentQuestion, "here")
-  } else if (quizQuestions === questionsPython) {
-    // currentQuestion = getPythonQuestion() 
-    currentQuestion = getPythonQuestion()
-    console.log(currentQuestion, typeof currentQuestion, "here")
-  } if (availableQuestions.length === 4) {
-    setTimeout(getWinner(), 100)
-  }
-  // if(!availableQuestions.includes(currentQuestion)) {
-  //   availableQuestions.push(currentQuestion)
-  // } else {
 
+  } else if (quizQuestions === questionsPython) {
+    currentQuestion = getPythonQuestion()
+  } else if (availableQuestions.length === 4) {
+
+  } else if (quizQuestions = questionsReact) {
+    currentQuestion = getReactQuestions()
+    
+  } setTimeout(getWinner(), 1000)
   if (quizQuestions.length > 0) {
     queDisplay.textContent = currentQuestion.question
-
-
     for (let i = 0; i < ansChoices.length; i++) {
-
       ansChoices[i].textContent = currentQuestion.choices[i]
       ansChoices[i].addEventListener('click', handleClick)
-
     }
-
     quizQuestions.splice(idx, 1)
     correctAnswer = currentQuestion.answer
   }
-
-
-  // console.log(quizQuestions.length);
 }
 
 function handleClick(evt) {
@@ -176,14 +168,15 @@ function handleClick(evt) {
   if (currentAttribute !== 'question-value') {
     if (evt.target.textContent === correctAnswer) {
       evt.target.setAttribute('class', currentAttribute)
+      correctSound.play()
       score += 25
       answerChoices += 1
       clickMessage.textContent = "Nice Work"
     } else {
       if (score >= 25) {
         score -= 25
-
       }
+      inccorectSound.play()
       clickMessage.textContent = 'Unlucky'
     }
   }
@@ -202,54 +195,38 @@ function handleClick(evt) {
 
 // <---------------------------------------------------------->
 function resetGame() {
-
-  // quizContainer.style.display = 'hidden'
-  // quizBtns.style.display = 'hidden'
-  // resetBtn.style.visibility = 'hidden'
   header.style.visibility = ''
   startGame.style.visibility = ""
   quizBtns.style.display = 'none'
-  // quizContainer.style.display='flex'
-
-
-
-  // let newQuiz=''
-  // for (let i=0; i<ansChoices.length; i++) {
-  //   const currentQuiz=ansChoices[i].getAttribute('class')
-  //   if(currentQuiz.includes('wrong')) {
-  //     answerChoices[i].setAttribute('class', newQuiz)
-  //   }
-  // }
 
   window.location.reload()
 }
 function getWinner() {
-  if (quizQuestions.length <= 1) {
+  if (quizQuestions.length <= 0) {
     if (totalScoreMsg == 100) {
       winner = true
     }
     else {
       winner = false
     }
+  }
+  else if (questionTimer.textContent === "You're out of time.") {
+    winner = false
     renderWinner()
   }
-  else if (questionTimer.textContent=== "You're out of time.") {
-    winner= false
-    renderWinner()
-  }
-  
+
 }
 
 
 function renderWinner() {
-    if (winner === true) {
-      winDisplay.style.display = `Good Job!`
-    } else if (winner === false) {
-      winDisplay.style.display = `Maybe next time!`
-    }
-
-    scoreMsg.textContent = `Your score: ${score}`
+  if (winner === true) {
+    winDisplay.style.display = `Good Job!`
+  } else if (winner === false) {
+    winDisplay.style.display = `Maybe next time!`
   }
+
+  scoreMsg.textContent = `Your score: ${score}`
+}
 
 
 
