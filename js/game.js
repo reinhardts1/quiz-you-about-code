@@ -6,7 +6,7 @@ import {
 }
   from "../data/qna.js"
 
-let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
+let winner, currentQuestion, correctAnswer, score, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
 let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3, .radio4',);
 const quizBtns = document.querySelector('.btn-container')
 const quizContainer = document.querySelector('.question-container')
@@ -53,7 +53,6 @@ function init() {
 
   score = 0
   winner = null
-  questionCounter = 0
   correctAnswer = 0
   availableQuestions = []
   seconds = 30
@@ -173,7 +172,7 @@ function handleClick(evt) {
   renderQuestion()
   
   // setTimeout(clearInterval(timer), 1000)
-  questionCounter++
+  // questionCounter++
 }
 
 
@@ -192,6 +191,7 @@ function resetGame() {
   window.location.reload()
 }
 function getWinner() {
+  
   if (quizQuestions.length <= 0) {
     if (totalScoreMsg == 100) {
       winner = true
