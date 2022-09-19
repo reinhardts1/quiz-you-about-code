@@ -19,6 +19,7 @@ I wanted to do a quiz game due to my love for challenges. This game required me 
 
 ## Credits: 
 freesound.org/
+https://icons8.com/
 
 ## Next Steps:
 - [] Add difficulty 
