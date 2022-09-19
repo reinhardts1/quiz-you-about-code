@@ -182,6 +182,7 @@ function handleClick(evt) {
   }
   // startTimer()
   renderQuestion()
+  
   // setTimeout(clearInterval(timer), 1000)
   questionCounter++
 }
@@ -212,17 +213,23 @@ function getWinner() {
   }
   else if (questionTimer.textContent === "You're out of time.") {
     winner = false
-    renderWinner()
+    
   }
+  renderWinner()
 
 }
 
 
 function renderWinner() {
   if (winner === true) {
-    winDisplay.style.display = `Good Job!`
+    winContainer.style.display = 'flex'
+    quizContainer.style.visibility='hidden'
+    winDisplay.textContent = 'Congratulations, you have finished the quiz!'
+
   } else if (winner === false) {
-    winDisplay.style.display = `Maybe next time!`
+    winContainer.style.display = 'flex'
+    quizContainer.style.visibility='hidden'
+    winDisplay.textContent = 'Maybe you need a bit more practice!'
   }
 
   scoreMsg.textContent = `Your score: ${score}`
