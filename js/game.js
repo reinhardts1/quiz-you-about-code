@@ -6,28 +6,18 @@ import {
 }
   from "../data/qna.js"
 
-
-// console.log(getJavascriptQuestion);
-// console.log(getNodeQuestion);
-// console.log(getPythonQuestion);
 let winner, currentQuestion, correctAnswer, score, questionCounter, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
 let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3, .radio4',);
 const quizBtns = document.querySelector('.btn-container')
 const quizContainer = document.querySelector('.question-container')
-// console.log(quizContainer, 'g');
-// console.log(quizContainer);
 const ansChoices = Array.from(document.querySelectorAll('.choices'))
-// console.log(ansChoices, 'array');
 const resetBtn = document.querySelector('#reset-btn')
 const winContainer = document.querySelector('#winner-container')
-// const selectMsg=document.querySelector('#quiz-selected')
-const scoreCollector = document.querySelector('#score-title')
 const scoreMsg = document.querySelector('#score-msg')
 const winDisplay = document.querySelector('#winner-msg')
 const totalScoreMsg = document.querySelector('#total-score')
 const queDisplay = document.querySelector('#question-board')
 const questionTimer = document.querySelector('#timer')
-// const qChoices = document.querySelector('.question-value')
 const startGame = document.querySelector('#start-btn')
 const clickMessage = document.querySelector('.click-msg')
 const header = document.querySelector('#header')
@@ -68,7 +58,6 @@ function init() {
   availableQuestions = []
   seconds = 30
   resetBtn.style.visibility = 'hidden'
-  scoreCollector.style.visibility = 'hidden'
   totalScoreMsg.style.visibility = 'hidden'
   quizContainer.style.display = 'none'
   questionTimer.style.visibility = ''
@@ -224,7 +213,7 @@ function renderWinner() {
   if (winner === true) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility='hidden'
-    winDisplay.textContent = 'Congratulations, you have finished the quiz!'
+    winDisplay.textContent = 'Congratulations'
 
   } else if (winner === false) {
     winContainer.style.display = 'flex'
