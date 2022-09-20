@@ -94,26 +94,6 @@ const questionsReact = [
 ]
 
 
-// function getNodeQuestion() {
-//   return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
-// }
-// function getPythonQuestion() {
-//   return quizQuestions.questionsPython[Math.floor(Math.random() * quizQuestions.questionsPython.length)]
-// }
-// function getJavascriptQuestion() {
-//   return quizQuestions.qJavascript[Math.floor(Math.random() * quizQuestions.qJavascript.length)]
-// }
-
-// function getNodeQuestion() {
-//   return quizQuestions.questionsNode[Math.floor(Math.random() * quizQuestions.questionsNode.length)]
-// }
-// function getJavascriptQuestion() {
-//   return quizQuestions.questionsJavascript[Math.floor(Math.random() * quizQuestions.questionsJavascript.length)]
-// }
-// function getPythonQuestion() {
-//   return quizQuestions.questionsPython[Math.floor(Math.random() *
-//     quizQuestions.questionsPython.length)]
-// }
 
 
 export {

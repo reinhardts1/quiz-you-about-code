@@ -191,7 +191,7 @@ function resetGame() {
 function getWinner() {
 
   if (quizQuestions.length <= 0) {
-    if (totalScoreMsg == 100) {
+    if (score == 100) {
       winner = true
     }
     else {

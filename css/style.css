@@ -140,23 +140,6 @@ h2 {
 
 
 
-
-/* #score-title {
-  display: flex;
-  justify-content: center;
-  width: 25%;
-  height: 50%;
-  font-family: 'Oswald', sans-serif;
-  color: #ccc;
-  text-shadow: 1px 1px 5px black;
-  transform-style: preserve-3d;
-  top: 25%;
-  left: 50%;
-
-} */
-
-
-
 .back-video {
   position: absolute;
   right: 0;
