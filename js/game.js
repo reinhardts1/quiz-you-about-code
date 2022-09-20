@@ -168,13 +168,8 @@ function handleClick(evt) {
       clickMessage.textContent = 'Unlucky'
     }
   }
-
   renderQuestion()
-
 }
-
-
-
 
 
 //<------------------------------------------------------------->
