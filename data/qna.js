@@ -3,7 +3,7 @@
 const questionsNode = [
   {
     question: " Which of the following command will show version of npm?",
-    choices: [" $ npm --version", "$ node --version", "$ npm getVersion", "$ node getVersion"],
+    choices: ["$ npm --version", "$ node --version", "$ npm getVersion", "$ node getVersion"],
     answer: "$ npm --version",
   },
   {
@@ -38,7 +38,7 @@ const questionsJavascript = [
   {
     question: "What is the correct syntax for referring to an external script called 'xxx.js'?",
     choices: ["<script href = 'xxx.js'>", "<script name = 'xxx.js'>", "<script src = 'xxx.js'>", "<link src = 'xxx.js'>"],
-    answer: "<script href = 'xxx.js'>",
+    answer: "<script src = 'xxx.js'>",
   },
   {
     question: "How does a FOR loop start?",
