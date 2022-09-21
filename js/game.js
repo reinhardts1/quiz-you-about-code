@@ -3,8 +3,8 @@ import {
   questionsNode,
   questionsPython,
   questionsReact
-}
-  from "../data/qna.js"
+} from "../data/qna.js"
+
 
 let winner, currentQuestion, correctAnswer, score, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
 let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3, .radio4',);
@@ -22,15 +22,8 @@ const startGame = document.querySelector('#start-btn')
 const clickMessage = document.querySelector('.click-msg')
 const header = document.querySelector('#header')
 
-
 const correctSound = new Audio('../assets/audios/correct sound.wav')
 const inccorectSound = new Audio('../assets/audios/incorrect sound.mp3')
-
-
-
-
-
-
 
 startGame.addEventListener('click', () => {
   quizBtns.style.visibility = ''
@@ -38,19 +31,12 @@ startGame.addEventListener('click', () => {
 })
 quizModeBtn.forEach(function (button) {
   button.addEventListener('click', selectQuiz)
-
 })
 resetBtn.addEventListener('click', resetGame)
-
-
-
-
 
 init()
 
 function init() {
-
-
   score = 0
   winner = null
   correctAnswer = 0
@@ -65,7 +51,6 @@ function init() {
     clearInterval(timer)
   }
 }
-
 
 function selectQuiz(event) {
 
@@ -84,13 +69,10 @@ function selectQuiz(event) {
   }
   startTimer()
   renderQuestion()
-
 }
 
 function startTimer() {
   clearInterval(timer)
-
-
   timer =
     setInterval(function () {
       questionTimer.textContent = seconds + ' seconds left'
@@ -102,23 +84,21 @@ function startTimer() {
     }, 1000)
 }
 
-
-
-
-//<------------------------------------------------------------->
 function getNodeQuestion() {
   idx = Math.floor(Math.random() * questionsNode.length)
   return questionsNode[idx]
 }
+
 function getPythonQuestion() {
   idx = Math.floor(Math.random() * questionsPython.length)
   return questionsPython[idx]
-
 }
+
 function getJavascriptQuestion() {
   idx = Math.floor(Math.random() * questionsJavascript.length)
   return questionsJavascript[idx]
 }
+
 function getReactQuestions() {
   idx = Math.floor(Math.random() * questionsReact.length)
   return questionsReact[idx]
@@ -134,6 +114,7 @@ function renderQuestion() {
 
   } else if (quizQuestions === questionsPython) {
     currentQuestion = getPythonQuestion()
+
   } else if (availableQuestions.length === 4) {
 
   } else if (quizQuestions = questionsReact) {
@@ -178,13 +159,12 @@ function handleClick(evt) {
 // <---------------------------------------------------------->
 function resetGame() {
   header.style.visibility = ''
-  startGame.style.visibility = ""
+  startGame.style.visibility = ''
   quizBtns.style.display = 'none'
 
   window.location.reload()
 }
 function getWinner() {
-
   if (quizQuestions.length <= 0) {
     if (score == 100) {
       winner = true
@@ -198,7 +178,6 @@ function getWinner() {
 
   }
   renderWinner()
-
 }
 
 
@@ -207,7 +186,7 @@ function renderWinner() {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
     winDisplay.textContent = 'Congratulations, You got 4/4 correct!'
-
+    
   } else if (winner === false) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
