@@ -4,8 +4,11 @@ Quizes are something that provide a player with a chance to get a question provi
 
 ## PLAY THE QUIZ!
 https://quizyouaboutcode.netlify.app/
-!(Screenshot-2022-09-19-at-8-24-16-AM.png)
-!(Screenshot-2022-09-19-at-8-25-01-AM.png)
+<br>
+
+![Start Quiz](Screenshot-2022-09-19-at-8-24-16-AM.png)
+![Quiz Selection](Screenshot-2022-09-19-at-8-25-01-AM.png)
+
 
 ## MOTIVATION:
 
