@@ -3,7 +3,9 @@ Quizes are something that provide a player with a chance to get a question provi
 
 
 ## PLAY THE QUIZ!
-https://quizyouaboutcode.netlify.app/
+<a href='https://quizyouaboutcode.netlify.app/'>
+Play The Game Here! </a>
+
 <br>
 
 ![Start Quiz](Screenshot-2022-09-19-at-8-24-16-AM.png)
