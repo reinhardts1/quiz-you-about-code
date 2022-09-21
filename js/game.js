@@ -5,7 +5,6 @@ import {
   questionsReact
 } from "../data/qna.js"
 
-
 let winner, currentQuestion, correctAnswer, score, answerChoices, idx, timer, seconds, availableQuestions, quizQuestions
 let quizModeBtn = document.querySelectorAll('.radio1, .radio2, .radio3, .radio4',);
 const quizBtns = document.querySelector('.btn-container')
@@ -152,11 +151,6 @@ function handleClick(evt) {
   renderQuestion()
 }
 
-
-//<------------------------------------------------------------->
-
-
-// <---------------------------------------------------------->
 function resetGame() {
   header.style.visibility = ''
   startGame.style.visibility = ''
@@ -180,19 +174,17 @@ function getWinner() {
   renderWinner()
 }
 
-
 function renderWinner() {
   if (winner === true) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
     winDisplay.textContent = 'Congratulations, You got 4/4 correct!'
-    
+
   } else if (winner === false) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
     winDisplay.textContent = 'You Lose! Maybe you need a bit more practice!'
   }
-
   scoreMsg.textContent = `Your score: ${score}`
 }
 
