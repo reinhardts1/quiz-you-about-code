@@ -206,12 +206,12 @@ function renderWinner() {
   if (winner === true) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
-    winDisplay.textContent = 'Congratulations'
+    winDisplay.textContent = 'Congratulations, You got 4/4 correct!'
 
   } else if (winner === false) {
     winContainer.style.display = 'flex'
     quizContainer.style.visibility = 'hidden'
-    winDisplay.textContent = 'Maybe you need a bit more practice!'
+    winDisplay.textContent = 'You Lose! Maybe you need a bit more practice!'
   }
 
   scoreMsg.textContent = `Your score: ${score}`
