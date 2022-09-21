@@ -8,7 +8,7 @@ const questionsNode = [
   },
   {
     question: "By default, npm installs any dependency in the local mode.",
-    choices: ["true", 'false', 'Ben loves horses', 'David hates css',],
+    choices: ["True", 'False', 'Ben loves horses', 'David hates css',],
     answer: "True",
   },
   {
@@ -72,13 +72,13 @@ const questionsPython = [
 const questionsReact = [
   {
     question: "What command is used to start the React local development server?",
-    choices: ["npm serve","npm run dev","npm build","npm start  "],
+    choices: ["npm serve","npm run dev","npm build","npm start"],
     answer: "npm start"
   },
   {
     question: "What is the default local host port that a React development server uses?",
-    choices: ["8080","5000","3000","3500"],
-    answer: "3500"
+    choices: ["8080","5000","3000","3000"],
+    answer: "3000"
   },
   {
     question: "Which keyword creates a constant in JavaScript?",
