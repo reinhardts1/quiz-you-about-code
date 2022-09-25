@@ -26,7 +26,7 @@ const inccorectSound = new Audio('../assets/audios/incorrect sound.mp3')
 
 startGame.addEventListener('click', () => {
   quizBtns.style.visibility = ''
-  startGame.style.visibility = 'hidden'
+  startGame.style.display = 'none'
 })
 quizModeBtn.forEach(function (button) {
   button.addEventListener('click', selectQuiz)
@@ -42,7 +42,7 @@ function init() {
   availableQuestions = []
   seconds = 30
   resetBtn.style.visibility = 'hidden'
-  totalScoreMsg.style.visibility = 'hidden'
+  totalScoreMsg.style.display = 'none'
   quizContainer.style.display = 'none'
   questionTimer.style.visibility = ''
   quizBtns.style.visibility = 'hidden'
@@ -155,7 +155,6 @@ function resetGame() {
   header.style.visibility = ''
   startGame.style.visibility = ''
   quizBtns.style.display = 'none'
-
   window.location.reload()
 }
 function getWinner() {
@@ -169,7 +168,6 @@ function getWinner() {
   }
   else if (questionTimer.textContent === "You're out of time.") {
     winner = false
-
   }
   renderWinner()
 }

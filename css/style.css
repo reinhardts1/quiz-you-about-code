@@ -3,37 +3,33 @@
   box-sizing: border-box;
   letter-spacing: 4px;
 }
-
-
-
 body {
-  font-family: "Roboto", sans-serif;
-  background: linear-gradient(#e66465, #9198e5);
+  font-family: “Roboto”, sans-serif;
+  background: linear-gradient(#E66465, #9198E5);
   text-align: center;
-  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-h1 {
+#header {
   text-align: center;
   color: white;
   font-family: 'Bungee Shade', cursive;
-
 }
-
 h2 {
   color: white;
   font-family: 'Bungee Shade', cursive;
   text-align: center;
 }
-
 .body-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  margin: 0;
 }
-
 #start-btn {
   margin-top: 250px;
   font-size: 25px;
@@ -41,113 +37,68 @@ h2 {
   height: 250px;
   color: white;
   letter-spacing: 50px;
-  box-shadow: inset 0 0 0 0 #ff0000;
+  box-shadow: inset 0 0 0 0 #FF0000;
   transition: ease-out .3s;
   outline: none;
   padding: 50px;
 }
-
 #start-btn:hover {
-  box-shadow: inset 600px 500px 500px #faf9e8;
+  box-shadow: inset 600px 500px 500px #FAF9E8;
   color: black;
-
 }
-
-
-.btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-
-}
-
 #normal {
   width: 300px;
   height: 50px;
   border: none;
   color: white;
-
   background: rgba(158, 20, 20, 0.875);
   border-radius: 4px;
-  box-shadow: inset 0 0 0 0 #f9e506;
+  box-shadow: inset 0 0 0 0 #F9E506;
   transition: ease-out .3s;
   outline: none;
 }
-
 #normal:hover {
-  box-shadow: inset 300px 0 0 0 #f9e506;
+  box-shadow: inset 300px 0 0 0 #F9E506;
   color: black;
 }
-
 #javascript {
   width: 300px;
   height: 50px;
   border: none;
   color: white;
-
   background: rgba(158, 20, 20, 0.875);
   border-radius: 4px;
-  box-shadow: inset 0 0 0 0 #f9e506;
+  box-shadow: inset 0 0 0 0 #F9E506;
   transition: ease-out .3s;
   outline: none;
 }
-
 #javascript:hover {
-  box-shadow: inset 300px 0 0 0 #f9e506;
+  box-shadow: inset 300px 0 0 0 #F9E506;
   color: black;
 }
-
 #python {
   width: 300px;
   height: 50px;
   border: none;
   color: white;
-
   background: rgba(158, 20, 20, 0.875);
   border-radius: 4px;
-  box-shadow: inset 0 0 0 0 #f9e506;
+  box-shadow: inset 0 0 0 0 #F9E506;
   transition: ease-out .3s;
   outline: none;
 }
-
 #python:hover {
-  box-shadow: inset 300px 0 0 0 #f9e506;
+  box-shadow: inset 300px 0 0 0 #F9E506;
   color: black;
 }
-
-
-
-
 .question-container {
   display: flex;
   justify-content: center;
   text-align: left;
   flex-direction: column;
   align-items: center;
-  margin-top: -150px;
 
 }
-
-
-
-
-
-
-
-
-
-
-.back-video {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  width: 1440px;
-}
-
 #question-board {
   display: flex;
   justify-content: center;
@@ -155,58 +106,56 @@ h2 {
   flex-direction: column;
   border: 2px solid rgba(202, 61, 61, 0.774);
   border-radius: 10px;
-  min-height: 15vh;
-  margin: 40px 20px 0 20px;
-  margin-top: 2vh;
-  gap: 30px;
+  min-height: 8.5em;
   background: #cee664db;
-  width: 50.6%;
   font-size: 12px;
   color: rgb(0, 0, 0);
   font: bold;
-  font-size: medium;
-
+  width: 500px;
+  padding: 10px;
 }
-
-#board>p {
-  padding: 4vh 8vw 2vh;
-  text-align: center;
-}
-
-
 #question-value {
   display: flex;
   flex-direction: column;
   gap: inherit;
   margin-bottom: 5px;
 }
-
 #question-value>div {
   border: 2px solid;
   border-radius: 10px;
-  width: 50vw;
-  max-height: 4vh;
+  width: 500px;
   text-align: center;
   padding: 5px 5px;
   background: rgba(255, 255, 255, 0.618);
   color: red;
+  margin: 5px;
 }
-
 #timer {
   color: white;
 }
-
 #quiz-selected {
   text-align: center;
 }
-
 #total {
   text-align: center;
   color: white;
 }
-
 #winner-container {
   display: flex;
-
-
+}
+#timer {
+  margin: 2px;
+}
+/* .header-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

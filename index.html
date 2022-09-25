@@ -17,7 +17,7 @@
     integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/style.css">
-  
+
   <link rel="shortcut icon" type="image/png" href="./assets/icons8-motherboard-64.png">
 
   <script src="./js/game.js" type="module"></script>
@@ -26,56 +26,48 @@
 </head>
 
 <body>
-  <div class="body-content">
-    <h1 id="header"> QUIZ CODE </h1>
-    <button type="button" class="btn btn-outline-success" id="start-btn">START</button>
+  <h1 id="header"> QUIZ CODE </h1>
+  <button type="button" class="btn btn-outline-success" id="start-btn">START</button>
 
-    <div class="btn-container">
-      <h2>Select Quiz Mode</h2>
-      <div class="select-box">
-        <div class="mode-container" id="mode-btns">
-          <div class="modes">
-            <button class="radio1" id="normal" name='category'>Node</button>
-
-          </div>
-        </div>
+  <div class="btn-container">
+    <h2>Select Quiz Mode</h2>
+    <div class="select-box">
+      <div class="mode-container" id="mode-btns">
         <div class="modes">
-          <button class="radio2" id="normal" name='category'>Javascript</button>
+          <button class="radio1" id="normal" name='category'>Node</button>
 
         </div>
-        <div class="modes">
-          <button class="radio3" id="normal" name='category'>Python</button>
+      </div>
+      <div class="modes">
+        <button class="radio2" id="normal" name='category'>Javascript</button>
 
-        </div>
-        <div class="modes">
-          <button class="radio4" id="normal" name="category">React</button>
-        </div>
+      </div>
+      <div class="modes">
+        <button class="radio3" id="normal" name='category'>Python</button>
+
+      </div>
+      <div class="modes">
+        <button class="radio4" id="normal" name="category">React</button>
       </div>
     </div>
   </div>
-
-  <div id="winner-container">
-    <p id="winner-msg"></p>
-    <p id="total-score">Score</p>
-    <p id="score-msg"></p>
-
-  </div>
-  <div class="question-container">
-    <div id="timer">
-
+    <div id="winner-container">
+      <p id="winner-msg"></p>
+      <p id="total-score">Score</p>
+      <p id="score-msg"></p>
     </div>
-    <p id="question-board">Here are the questions</p>
-    <div id="question-value" class="question-value">
-      <div class='choice1 choices'></div>
-      <div class='choice2 choices'></div>
-      <div class='choice3 choices'></div>
-      <div class='choice4 choices'></div>
+    <div class="question-container">
+      <div id="timer"></div>
+      <p id="question-board">Here are the questions</p>
+      <div id="question-value" class="question-value">
+        <div class='choice1 choices'></div>
+        <div class='choice2 choices'></div>
+        <div class='choice3 choices'></div>
+        <div class='choice4 choices'></div>
+      </div>
+      <div class="click-msg"></div>
     </div>
-    <div class="click-msg"></div>
-  </div>
   <button type="button" class="btn btn-danger" id="reset-btn">RESET</button>
-
-  </div>
 </body>
 
 </html>
