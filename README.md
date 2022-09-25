@@ -30,10 +30,10 @@ freesound.org/
 https://icons8.com/
 
 ## Next Steps:
-- [] Add difficulty 
-- [] Add a leaderboard for high scores
-- [] Add animation to categories
-- [] Add background inital music
+- [ ] Add difficulty 
+- [ ] Add a leaderboard for high scores
+- [ ] Add animation to categories
+- [ ] Add background inital music
 
 
 
