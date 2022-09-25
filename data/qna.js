@@ -58,14 +58,14 @@ const questionsPython = [
     answer: ".py",
   },
   {
-    question: "Does Ben like Python",
-    choices: ["Hates it just like he hates horses", "Loves it more than his cats", " Its meh", "All of the above"],
-    answer: " Its meh",
+    question: "What is the correct way to create a function in Python?",
+    choices: ["create myFunction():", "def myFunction():", "function myfunction():", "None of the above"],
+    answer: "def myFunction():",
   },
   {
-    question: "Why does David have an obsession with CSS",
-    choices: ["He loves himself some styling sheets", "Makes him happy", "Because he's a geek", "All of the above"],
-    answer: "He loves himself some styling sheets",
+    question: "What is a correct syntax to return the first character in a string?",
+    choices: ["x = 'Hello'[0]", "x = 'Hello'.sub(0, 1)", "x = sub('Hello', 0, 1)", "x = ('hello'.sub, 0, 1)"],
+    answer: "x = 'Hello'[0]",
   }
 
 ]
@@ -77,18 +77,18 @@ const questionsReact = [
   },
   {
     question: "What is the default local host port that a React development server uses?",
-    choices: ["8080","5000","3000","3000"],
+    choices: ["8080","5000","3000","3500"],
     answer: "3000"
   },
   {
-    question: "Which keyword creates a constant in JavaScript?",
-    choices: ["let","constant","const","var"],
-    answer: "const"
+    question: "In React.js, how we can pass the data from one component to another in React.js ?",
+    choices: ["	SetState","Render with arguments","Props","PropTypes"],
+    answer: "Props"
   },
   {
-    question: "A copy of the 'real' DOM that is kept in memory is called what?",
-    choices: ["Shadow DOM","DOM","React DOM","Virtual DOM"],
-    answer: "Virtual DOM"
+    question: "Which of the following function is true about changing the state in React.js ?",
+    choices: ["this.State{}","this.setState","this.setChangeState","All of the above"],
+    answer: "this.setState"
   },
 
 ]
