@@ -8,7 +8,7 @@ const questionsNode = [
   },
   {
     question: "By default, npm installs any dependency in the local mode.",
-    choices: ["True", 'False', 'Ben loves horses', 'David hates css',],
+    choices: ["True", 'False', 'Npm installs on both local and cloud', 'None of the above',],
     answer: "True",
   },
   {
