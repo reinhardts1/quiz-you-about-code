@@ -4,7 +4,7 @@
   letter-spacing: 4px;
 }
 body {
-  font-family: “Roboto”, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(#E66465, #9198E5);
   text-align: center;
   min-height: 100vh;
@@ -146,12 +146,6 @@ h2 {
 #timer {
   margin: 2px;
 }
-/* .header-start {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
 .btn-container {
   display: flex;
   flex-direction: column;

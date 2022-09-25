@@ -138,7 +138,7 @@ function handleClick(evt) {
       correctSound.play()
       score += 25
       answerChoices += 1
-      clickMessage.textContent = "Nice Work"
+      clickMessage.textContent = 'Nice Work'
     } else {
       if (score >= 25) {
         score -= 25
