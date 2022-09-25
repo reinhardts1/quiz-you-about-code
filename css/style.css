@@ -132,6 +132,7 @@ h2 {
 }
 #timer {
   color: white;
+  margin: 2px;
 }
 #quiz-selected {
   text-align: center;
@@ -142,9 +143,6 @@ h2 {
 }
 #winner-container {
   display: flex;
-}
-#timer {
-  margin: 2px;
 }
 .btn-container {
   display: flex;
