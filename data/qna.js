@@ -93,9 +93,6 @@ const questionsReact = [
 
 ]
 
-
-
-
 export {
   questionsJavascript,
   questionsNode,

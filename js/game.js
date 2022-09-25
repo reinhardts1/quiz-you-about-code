@@ -103,7 +103,6 @@ function getReactQuestions() {
   return questionsReact[idx]
 }
 
-
 function renderQuestion() {
   if (quizQuestions === questionsJavascript) {
     currentQuestion = getJavascriptQuestion()
@@ -157,6 +156,7 @@ function resetGame() {
   quizBtns.style.display = 'none'
   window.location.reload()
 }
+
 function getWinner() {
   if (quizQuestions.length <= 0) {
     if (score == 100) {
